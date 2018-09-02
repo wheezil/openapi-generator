@@ -70,7 +70,8 @@ public class ProgressRequestBody extends RequestBody {
                 }
 
                 bytesWritten += byteCount;
-                progressListener.onRequestProgress(bytesWritten, contentLength, bytesWritten == contentLength);
+                progressListener.onRequestProgress(bytesWritten, contentLength,
+                        bytesWritten == contentLength);
             }
         };
     }

@@ -30,68 +30,67 @@ import org.openapitools.client.model.Animal;
  */
 
 public class Dog extends Animal {
-  public static final String SERIALIZED_NAME_BREED = "breed";
-  @SerializedName(SERIALIZED_NAME_BREED)
-  private String breed = null;
+    public static final String SERIALIZED_NAME_BREED = "breed";
+    @SerializedName(SERIALIZED_NAME_BREED)
+    private String breed = null;
 
-  public Dog breed(String breed) {
-    this.breed = breed;
-    return this;
-  }
+    public Dog breed(String breed) {
+        this.breed = breed;
+        return this;
+    }
 
    /**
-   * Get breed
-   * @return breed
-  **/
-  @ApiModelProperty(value = "")
-  public String getBreed() {
-    return breed;
-  }
-
-  public void setBreed(String breed) {
-    this.breed = breed;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+     * Get breed
+     * @return breed
+     **/
+    @ApiModelProperty(value = "")
+    public String getBreed() {
+        return breed;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
-    Dog dog = (Dog) o;
-    return Objects.equals(this.breed, dog.breed) &&
-        super.equals(o);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(breed, super.hashCode());
-  }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Dog {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    breed: ").append(toIndentedString(breed)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Dog dog = (Dog) o;
+        return Objects.equals(this.breed, dog.breed) &&
+        super.equals(o);    }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public int hashCode() {
+        return Objects.hash(breed, super.hashCode());
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Dog {\n");
+        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+        sb.append("    breed: ").append(toIndentedString(breed)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

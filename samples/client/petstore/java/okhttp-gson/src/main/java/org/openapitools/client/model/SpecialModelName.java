@@ -29,67 +29,65 @@ import java.io.IOException;
  */
 
 public class SpecialModelName {
-  public static final String SERIALIZED_NAME_$_SPECIAL_PROPERTY_NAME = "$special[property.name]";
-  @SerializedName(SERIALIZED_NAME_$_SPECIAL_PROPERTY_NAME)
-  private Long $specialPropertyName = null;
+    public static final String SERIALIZED_NAME_$_SPECIAL_PROPERTY_NAME = "$special[property.name]";
+    @SerializedName(SERIALIZED_NAME_$_SPECIAL_PROPERTY_NAME)
+    private Long $specialPropertyName = null;
 
-  public SpecialModelName $specialPropertyName(Long $specialPropertyName) {
-    this.$specialPropertyName = $specialPropertyName;
-    return this;
-  }
+    public SpecialModelName $specialPropertyName(Long $specialPropertyName) {
+        this.$specialPropertyName = $specialPropertyName;
+        return this;
+    }
 
    /**
-   * Get $specialPropertyName
-   * @return $specialPropertyName
-  **/
-  @ApiModelProperty(value = "")
-  public Long get$SpecialPropertyName() {
-    return $specialPropertyName;
-  }
-
-  public void set$SpecialPropertyName(Long $specialPropertyName) {
-    this.$specialPropertyName = $specialPropertyName;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+     * Get $specialPropertyName
+     * @return $specialPropertyName
+     **/
+    @ApiModelProperty(value = "")
+    public Long get$SpecialPropertyName() {
+        return $specialPropertyName;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void set$SpecialPropertyName(Long $specialPropertyName) {
+        this.$specialPropertyName = $specialPropertyName;
     }
-    SpecialModelName $specialModelName = (SpecialModelName) o;
-    return Objects.equals(this.$specialPropertyName, $specialModelName.$specialPropertyName);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash($specialPropertyName);
-  }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SpecialModelName {\n");
-    
-    sb.append("    $specialPropertyName: ").append(toIndentedString($specialPropertyName)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SpecialModelName $specialModelName = (SpecialModelName) o;
+        return Objects.equals(this.$specialPropertyName, $specialModelName.$specialPropertyName);    }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public int hashCode() {
+        return Objects.hash($specialPropertyName);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SpecialModelName {\n");
+        sb.append("    $specialPropertyName: ").append(toIndentedString($specialPropertyName)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -30,68 +30,67 @@ import org.openapitools.client.model.Animal;
  */
 
 public class Cat extends Animal {
-  public static final String SERIALIZED_NAME_DECLAWED = "declawed";
-  @SerializedName(SERIALIZED_NAME_DECLAWED)
-  private Boolean declawed = null;
+    public static final String SERIALIZED_NAME_DECLAWED = "declawed";
+    @SerializedName(SERIALIZED_NAME_DECLAWED)
+    private Boolean declawed = null;
 
-  public Cat declawed(Boolean declawed) {
-    this.declawed = declawed;
-    return this;
-  }
+    public Cat declawed(Boolean declawed) {
+        this.declawed = declawed;
+        return this;
+    }
 
    /**
-   * Get declawed
-   * @return declawed
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getDeclawed() {
-    return declawed;
-  }
-
-  public void setDeclawed(Boolean declawed) {
-    this.declawed = declawed;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+     * Get declawed
+     * @return declawed
+     **/
+    @ApiModelProperty(value = "")
+    public Boolean getDeclawed() {
+        return declawed;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setDeclawed(Boolean declawed) {
+        this.declawed = declawed;
     }
-    Cat cat = (Cat) o;
-    return Objects.equals(this.declawed, cat.declawed) &&
-        super.equals(o);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(declawed, super.hashCode());
-  }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Cat {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    declawed: ").append(toIndentedString(declawed)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Cat cat = (Cat) o;
+        return Objects.equals(this.declawed, cat.declawed) &&
+        super.equals(o);    }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public int hashCode() {
+        return Objects.hash(declawed, super.hashCode());
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Cat {\n");
+        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+        sb.append("    declawed: ").append(toIndentedString(declawed)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

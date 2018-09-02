@@ -30,67 +30,65 @@ import java.io.IOException;
 @ApiModel(description = "Model for testing model with \"_class\" property")
 
 public class ClassModel {
-  public static final String SERIALIZED_NAME_PROPERTY_CLASS = "_class";
-  @SerializedName(SERIALIZED_NAME_PROPERTY_CLASS)
-  private String propertyClass = null;
+    public static final String SERIALIZED_NAME_PROPERTY_CLASS = "_class";
+    @SerializedName(SERIALIZED_NAME_PROPERTY_CLASS)
+    private String propertyClass = null;
 
-  public ClassModel propertyClass(String propertyClass) {
-    this.propertyClass = propertyClass;
-    return this;
-  }
+    public ClassModel propertyClass(String propertyClass) {
+        this.propertyClass = propertyClass;
+        return this;
+    }
 
    /**
-   * Get propertyClass
-   * @return propertyClass
-  **/
-  @ApiModelProperty(value = "")
-  public String getPropertyClass() {
-    return propertyClass;
-  }
-
-  public void setPropertyClass(String propertyClass) {
-    this.propertyClass = propertyClass;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+     * Get propertyClass
+     * @return propertyClass
+     **/
+    @ApiModelProperty(value = "")
+    public String getPropertyClass() {
+        return propertyClass;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setPropertyClass(String propertyClass) {
+        this.propertyClass = propertyClass;
     }
-    ClassModel classModel = (ClassModel) o;
-    return Objects.equals(this.propertyClass, classModel.propertyClass);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(propertyClass);
-  }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ClassModel {\n");
-    
-    sb.append("    propertyClass: ").append(toIndentedString(propertyClass)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ClassModel classModel = (ClassModel) o;
+        return Objects.equals(this.propertyClass, classModel.propertyClass);    }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public int hashCode() {
+        return Objects.hash(propertyClass);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ClassModel {\n");
+        sb.append("    propertyClass: ").append(toIndentedString(propertyClass)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -29,73 +29,71 @@ import java.io.IOException;
  */
 
 public class HasOnlyReadOnly {
-  public static final String SERIALIZED_NAME_BAR = "bar";
-  @SerializedName(SERIALIZED_NAME_BAR)
-  private String bar = null;
+    public static final String SERIALIZED_NAME_BAR = "bar";
+    @SerializedName(SERIALIZED_NAME_BAR)
+    private String bar = null;
 
-  public static final String SERIALIZED_NAME_FOO = "foo";
-  @SerializedName(SERIALIZED_NAME_FOO)
-  private String foo = null;
-
-   /**
-   * Get bar
-   * @return bar
-  **/
-  @ApiModelProperty(value = "")
-  public String getBar() {
-    return bar;
-  }
+    public static final String SERIALIZED_NAME_FOO = "foo";
+    @SerializedName(SERIALIZED_NAME_FOO)
+    private String foo = null;
 
    /**
-   * Get foo
-   * @return foo
-  **/
-  @ApiModelProperty(value = "")
-  public String getFoo() {
-    return foo;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+     * Get bar
+     * @return bar
+     **/
+    @ApiModelProperty(value = "")
+    public String getBar() {
+        return bar;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+   /**
+     * Get foo
+     * @return foo
+     **/
+    @ApiModelProperty(value = "")
+    public String getFoo() {
+        return foo;
     }
-    HasOnlyReadOnly hasOnlyReadOnly = (HasOnlyReadOnly) o;
-    return Objects.equals(this.bar, hasOnlyReadOnly.bar) &&
-        Objects.equals(this.foo, hasOnlyReadOnly.foo);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(bar, foo);
-  }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class HasOnlyReadOnly {\n");
-    
-    sb.append("    bar: ").append(toIndentedString(bar)).append("\n");
-    sb.append("    foo: ").append(toIndentedString(foo)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        HasOnlyReadOnly hasOnlyReadOnly = (HasOnlyReadOnly) o;
+        return Objects.equals(this.bar, hasOnlyReadOnly.bar) &&
+        Objects.equals(this.foo, hasOnlyReadOnly.foo);    }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public int hashCode() {
+        return Objects.hash(bar, foo);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class HasOnlyReadOnly {\n");
+        sb.append("    bar: ").append(toIndentedString(bar)).append("\n");
+        sb.append("    foo: ").append(toIndentedString(foo)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

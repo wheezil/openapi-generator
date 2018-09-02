@@ -30,67 +30,65 @@ import java.math.BigDecimal;
  */
 
 public class NumberOnly {
-  public static final String SERIALIZED_NAME_JUST_NUMBER = "JustNumber";
-  @SerializedName(SERIALIZED_NAME_JUST_NUMBER)
-  private BigDecimal justNumber = null;
+    public static final String SERIALIZED_NAME_JUST_NUMBER = "JustNumber";
+    @SerializedName(SERIALIZED_NAME_JUST_NUMBER)
+    private BigDecimal justNumber = null;
 
-  public NumberOnly justNumber(BigDecimal justNumber) {
-    this.justNumber = justNumber;
-    return this;
-  }
+    public NumberOnly justNumber(BigDecimal justNumber) {
+        this.justNumber = justNumber;
+        return this;
+    }
 
    /**
-   * Get justNumber
-   * @return justNumber
-  **/
-  @ApiModelProperty(value = "")
-  public BigDecimal getJustNumber() {
-    return justNumber;
-  }
-
-  public void setJustNumber(BigDecimal justNumber) {
-    this.justNumber = justNumber;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+     * Get justNumber
+     * @return justNumber
+     **/
+    @ApiModelProperty(value = "")
+    public BigDecimal getJustNumber() {
+        return justNumber;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setJustNumber(BigDecimal justNumber) {
+        this.justNumber = justNumber;
     }
-    NumberOnly numberOnly = (NumberOnly) o;
-    return Objects.equals(this.justNumber, numberOnly.justNumber);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(justNumber);
-  }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class NumberOnly {\n");
-    
-    sb.append("    justNumber: ").append(toIndentedString(justNumber)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        NumberOnly numberOnly = (NumberOnly) o;
+        return Objects.equals(this.justNumber, numberOnly.justNumber);    }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public int hashCode() {
+        return Objects.hash(justNumber);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class NumberOnly {\n");
+        sb.append("    justNumber: ").append(toIndentedString(justNumber)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

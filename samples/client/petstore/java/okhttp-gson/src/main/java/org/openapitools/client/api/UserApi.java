@@ -79,7 +79,8 @@ public class UserApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -87,20 +88,28 @@ public class UserApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -112,7 +121,8 @@ public class UserApi {
         }
         
 
-        com.squareup.okhttp.Call call = createUserCall(user, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                createUserCall(user, progressListener, progressRequestListener);
         return call;
 
     }
@@ -197,7 +207,8 @@ public class UserApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -205,20 +216,28 @@ public class UserApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -230,7 +249,8 @@ public class UserApi {
         }
         
 
-        com.squareup.okhttp.Call call = createUsersWithArrayInputCall(user, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                createUsersWithArrayInputCall(user, progressListener, progressRequestListener);
         return call;
 
     }
@@ -315,7 +335,8 @@ public class UserApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -323,20 +344,28 @@ public class UserApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -348,7 +377,8 @@ public class UserApi {
         }
         
 
-        com.squareup.okhttp.Call call = createUsersWithListInputCall(user, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                createUsersWithListInputCall(user, progressListener, progressRequestListener);
         return call;
 
     }
@@ -434,7 +464,8 @@ public class UserApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -442,20 +473,28 @@ public class UserApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -467,7 +506,8 @@ public class UserApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteUserCall(username, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                deleteUserCall(username, progressListener, progressRequestListener);
         return call;
 
     }
@@ -553,7 +593,8 @@ public class UserApi {
             "application/xml", "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -561,20 +602,28 @@ public class UserApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -586,7 +635,8 @@ public class UserApi {
         }
         
 
-        com.squareup.okhttp.Call call = getUserByNameCall(username, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                getUserByNameCall(username, progressListener, progressRequestListener);
         return call;
 
     }
@@ -680,7 +730,8 @@ public class UserApi {
             "application/xml", "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -688,20 +739,28 @@ public class UserApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -718,7 +777,8 @@ public class UserApi {
         }
         
 
-        com.squareup.okhttp.Call call = loginUserCall(username, password, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                loginUserCall(username, password, progressListener, progressRequestListener);
         return call;
 
     }
@@ -809,7 +869,8 @@ public class UserApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -817,27 +878,36 @@ public class UserApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call logoutUserValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = logoutUserCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                logoutUserCall(progressListener, progressRequestListener);
         return call;
 
     }
@@ -921,7 +991,8 @@ public class UserApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -929,20 +1000,28 @@ public class UserApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -959,7 +1038,8 @@ public class UserApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateUserCall(username, user, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                updateUserCall(username, user, progressListener, progressRequestListener);
         return call;
 
     }

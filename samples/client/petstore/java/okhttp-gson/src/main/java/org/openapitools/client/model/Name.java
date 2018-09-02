@@ -30,121 +30,119 @@ import java.io.IOException;
 @ApiModel(description = "Model for testing model name same as property name")
 
 public class Name {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private Integer name = null;
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private Integer name = null;
 
-  public static final String SERIALIZED_NAME_SNAKE_CASE = "snake_case";
-  @SerializedName(SERIALIZED_NAME_SNAKE_CASE)
-  private Integer snakeCase = null;
+    public static final String SERIALIZED_NAME_SNAKE_CASE = "snake_case";
+    @SerializedName(SERIALIZED_NAME_SNAKE_CASE)
+    private Integer snakeCase = null;
 
-  public static final String SERIALIZED_NAME_PROPERTY = "property";
-  @SerializedName(SERIALIZED_NAME_PROPERTY)
-  private String property = null;
+    public static final String SERIALIZED_NAME_PROPERTY = "property";
+    @SerializedName(SERIALIZED_NAME_PROPERTY)
+    private String property = null;
 
-  public static final String SERIALIZED_NAME_123NUMBER = "123Number";
-  @SerializedName(SERIALIZED_NAME_123NUMBER)
-  private Integer _123number = null;
+    public static final String SERIALIZED_NAME_123NUMBER = "123Number";
+    @SerializedName(SERIALIZED_NAME_123NUMBER)
+    private Integer _123number = null;
 
-  public Name name(Integer name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public Integer getName() {
-    return name;
-  }
-
-  public void setName(Integer name) {
-    this.name = name;
-  }
-
-   /**
-   * Get snakeCase
-   * @return snakeCase
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getSnakeCase() {
-    return snakeCase;
-  }
-
-  public Name property(String property) {
-    this.property = property;
-    return this;
-  }
-
-   /**
-   * Get property
-   * @return property
-  **/
-  @ApiModelProperty(value = "")
-  public String getProperty() {
-    return property;
-  }
-
-  public void setProperty(String property) {
-    this.property = property;
-  }
-
-   /**
-   * Get _123number
-   * @return _123number
-  **/
-  @ApiModelProperty(value = "")
-  public Integer get123number() {
-    return _123number;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public Name name(Integer name) {
+        this.name = name;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+   /**
+     * Get name
+     * @return name
+     **/
+    @ApiModelProperty(required = true, value = "")
+    public Integer getName() {
+        return name;
     }
-    Name name = (Name) o;
-    return Objects.equals(this.name, name.name) &&
+
+    public void setName(Integer name) {
+        this.name = name;
+    }
+
+   /**
+     * Get snakeCase
+     * @return snakeCase
+     **/
+    @ApiModelProperty(value = "")
+    public Integer getSnakeCase() {
+        return snakeCase;
+    }
+
+    public Name property(String property) {
+        this.property = property;
+        return this;
+    }
+
+   /**
+     * Get property
+     * @return property
+     **/
+    @ApiModelProperty(value = "")
+    public String getProperty() {
+        return property;
+    }
+
+    public void setProperty(String property) {
+        this.property = property;
+    }
+
+   /**
+     * Get _123number
+     * @return _123number
+     **/
+    @ApiModelProperty(value = "")
+    public Integer get123number() {
+        return _123number;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Name name = (Name) o;
+        return Objects.equals(this.name, name.name) &&
         Objects.equals(this.snakeCase, name.snakeCase) &&
         Objects.equals(this.property, name.property) &&
-        Objects.equals(this._123number, name._123number);
-  }
+        Objects.equals(this._123number, name._123number);    }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, snakeCase, property, _123number);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Name {\n");
-    
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    snakeCase: ").append(toIndentedString(snakeCase)).append("\n");
-    sb.append("    property: ").append(toIndentedString(property)).append("\n");
-    sb.append("    _123number: ").append(toIndentedString(_123number)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, snakeCase, property, _123number);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Name {\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    snakeCase: ").append(toIndentedString(snakeCase)).append("\n");
+        sb.append("    property: ").append(toIndentedString(property)).append("\n");
+        sb.append("    _123number: ").append(toIndentedString(_123number)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

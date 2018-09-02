@@ -81,7 +81,8 @@ public class PetApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             "application/json", "application/xml"
@@ -89,20 +90,28 @@ public class PetApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] { "petstore_auth" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -114,7 +123,8 @@ public class PetApi {
         }
         
 
-        com.squareup.okhttp.Call call = addPetCall(pet, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                addPetCall(pet, progressListener, progressRequestListener);
         return call;
 
     }
@@ -203,7 +213,8 @@ public class PetApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -211,20 +222,28 @@ public class PetApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] { "petstore_auth" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -236,7 +255,8 @@ public class PetApi {
         }
         
 
-        com.squareup.okhttp.Call call = deletePetCall(petId, apiKey, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                deletePetCall(petId, apiKey, progressListener, progressRequestListener);
         return call;
 
     }
@@ -326,7 +346,8 @@ public class PetApi {
             "application/xml", "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -334,20 +355,28 @@ public class PetApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] { "petstore_auth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -359,7 +388,8 @@ public class PetApi {
         }
         
 
-        com.squareup.okhttp.Call call = findPetsByStatusCall(status, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                findPetsByStatusCall(status, progressListener, progressRequestListener);
         return call;
 
     }
@@ -452,7 +482,8 @@ public class PetApi {
             "application/xml", "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -460,20 +491,28 @@ public class PetApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] { "petstore_auth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @Deprecated
@@ -486,7 +525,8 @@ public class PetApi {
         }
         
 
-        com.squareup.okhttp.Call call = findPetsByTagsCall(tags, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                findPetsByTagsCall(tags, progressListener, progressRequestListener);
         return call;
 
     }
@@ -582,7 +622,8 @@ public class PetApi {
             "application/xml", "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             
@@ -590,20 +631,28 @@ public class PetApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] { "api_key" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -615,7 +664,8 @@ public class PetApi {
         }
         
 
-        com.squareup.okhttp.Call call = getPetByIdCall(petId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                getPetByIdCall(petId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -704,7 +754,8 @@ public class PetApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             "application/json", "application/xml"
@@ -712,20 +763,28 @@ public class PetApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] { "petstore_auth" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -737,7 +796,8 @@ public class PetApi {
         }
         
 
-        com.squareup.okhttp.Call call = updatePetCall(pet, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                updatePetCall(pet, progressListener, progressRequestListener);
         return call;
 
     }
@@ -829,7 +889,8 @@ public class PetApi {
             
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             "application/x-www-form-urlencoded"
@@ -837,20 +898,28 @@ public class PetApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] { "petstore_auth" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -862,7 +931,8 @@ public class PetApi {
         }
         
 
-        com.squareup.okhttp.Call call = updatePetWithFormCall(petId, name, status, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                updatePetWithFormCall(petId, name, status, progressListener, progressRequestListener);
         return call;
 
     }
@@ -960,7 +1030,8 @@ public class PetApi {
             "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             "multipart/form-data"
@@ -968,20 +1039,28 @@ public class PetApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] { "petstore_auth" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -993,7 +1072,8 @@ public class PetApi {
         }
         
 
-        com.squareup.okhttp.Call call = uploadFileCall(petId, additionalMetadata, file, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                uploadFileCall(petId, additionalMetadata, file, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1095,7 +1175,8 @@ public class PetApi {
             "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
             "multipart/form-data"
@@ -1103,20 +1184,28 @@ public class PetApi {
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors()
+                    .add(new com.squareup.okhttp.Interceptor() {
+                        @Override
+                        public com.squareup.okhttp.Response intercept(
+                                com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                            com.squareup.okhttp.Response originalResponse =
+                                    chain.proceed(chain.request());
+                            return originalResponse
+                                    .newBuilder()
+                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                            progressListener)).build();
+                        }
+                    });
+
+
         }
 
         String[] localVarAuthNames = new String[] { "petstore_auth" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams,
+               localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+               localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1133,7 +1222,8 @@ public class PetApi {
         }
         
 
-        com.squareup.okhttp.Call call = uploadFileWithRequiredFileCall(petId, requiredFile, additionalMetadata, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call =
+                uploadFileWithRequiredFileCall(petId, requiredFile, additionalMetadata, progressListener, progressRequestListener);
         return call;
 
     }

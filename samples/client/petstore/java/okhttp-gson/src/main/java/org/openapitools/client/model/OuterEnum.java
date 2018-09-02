@@ -28,48 +28,48 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(OuterEnum.Adapter.class)
 public enum OuterEnum {
+    
+    PLACED("placed"),
+    
+    APPROVED("approved"),
+    
+    DELIVERED("delivered");
   
-  PLACED("placed"),
+    private String value;
   
-  APPROVED("approved"),
-  
-  DELIVERED("delivered");
-
-  private String value;
-
-  OuterEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return value;
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  public static OuterEnum fromValue(String text) {
-    for (OuterEnum b : OuterEnum.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OuterEnum(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<OuterEnum> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final OuterEnum enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public OuterEnum read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return OuterEnum.fromValue(String.valueOf(value));
+    public String toString() {
+        return String.valueOf(value);
     }
+
+    public static OuterEnum fromValue(String text) {
+        for (OuterEnum b : OuterEnum.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + text + "'");
   }
+
+    public static class Adapter extends TypeAdapter<OuterEnum> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final OuterEnum enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public OuterEnum read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return OuterEnum.fromValue(String.valueOf(value));
+        }
+    }
 }
 

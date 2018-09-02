@@ -35,123 +35,121 @@ import org.threeten.bp.OffsetDateTime;
  */
 
 public class MixedPropertiesAndAdditionalPropertiesClass {
-  public static final String SERIALIZED_NAME_UUID = "uuid";
-  @SerializedName(SERIALIZED_NAME_UUID)
-  private UUID uuid = null;
+    public static final String SERIALIZED_NAME_UUID = "uuid";
+    @SerializedName(SERIALIZED_NAME_UUID)
+    private UUID uuid = null;
 
-  public static final String SERIALIZED_NAME_DATE_TIME = "dateTime";
-  @SerializedName(SERIALIZED_NAME_DATE_TIME)
-  private OffsetDateTime dateTime = null;
+    public static final String SERIALIZED_NAME_DATE_TIME = "dateTime";
+    @SerializedName(SERIALIZED_NAME_DATE_TIME)
+    private OffsetDateTime dateTime = null;
 
-  public static final String SERIALIZED_NAME_MAP = "map";
-  @SerializedName(SERIALIZED_NAME_MAP)
-  private Map<String, Animal> map = null;
+    public static final String SERIALIZED_NAME_MAP = "map";
+    @SerializedName(SERIALIZED_NAME_MAP)
+    private Map<String, Animal> map = null;
 
-  public MixedPropertiesAndAdditionalPropertiesClass uuid(UUID uuid) {
-    this.uuid = uuid;
-    return this;
-  }
+    public MixedPropertiesAndAdditionalPropertiesClass uuid(UUID uuid) {
+        this.uuid = uuid;
+        return this;
+    }
 
    /**
-   * Get uuid
-   * @return uuid
-  **/
-  @ApiModelProperty(value = "")
-  public UUID getUuid() {
-    return uuid;
-  }
+     * Get uuid
+     * @return uuid
+     **/
+    @ApiModelProperty(value = "")
+    public UUID getUuid() {
+        return uuid;
+    }
 
-  public void setUuid(UUID uuid) {
-    this.uuid = uuid;
-  }
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
 
-  public MixedPropertiesAndAdditionalPropertiesClass dateTime(OffsetDateTime dateTime) {
-    this.dateTime = dateTime;
-    return this;
-  }
+    public MixedPropertiesAndAdditionalPropertiesClass dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
 
    /**
-   * Get dateTime
-   * @return dateTime
-  **/
-  @ApiModelProperty(value = "")
-  public OffsetDateTime getDateTime() {
-    return dateTime;
-  }
-
-  public void setDateTime(OffsetDateTime dateTime) {
-    this.dateTime = dateTime;
-  }
-
-  public MixedPropertiesAndAdditionalPropertiesClass map(Map<String, Animal> map) {
-    this.map = map;
-    return this;
-  }
-
-  public MixedPropertiesAndAdditionalPropertiesClass putMapItem(String key, Animal mapItem) {
-    if (this.map == null) {
-      this.map = new HashMap<String, Animal>();
+     * Get dateTime
+     * @return dateTime
+     **/
+    @ApiModelProperty(value = "")
+    public OffsetDateTime getDateTime() {
+        return dateTime;
     }
-    this.map.put(key, mapItem);
-    return this;
-  }
+
+    public void setDateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public MixedPropertiesAndAdditionalPropertiesClass map(Map<String, Animal> map) {
+        this.map = map;
+        return this;
+    }
+
+    public MixedPropertiesAndAdditionalPropertiesClass putMapItem(String key, Animal mapItem) {
+        if (this.map == null) {
+            this.map = new HashMap<String, Animal>();
+        }
+        this.map.put(key, mapItem);
+        return this;
+    }
 
    /**
-   * Get map
-   * @return map
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, Animal> getMap() {
-    return map;
-  }
-
-  public void setMap(Map<String, Animal> map) {
-    this.map = map;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+     * Get map
+     * @return map
+     **/
+    @ApiModelProperty(value = "")
+    public Map<String, Animal> getMap() {
+        return map;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setMap(Map<String, Animal> map) {
+        this.map = map;
     }
-    MixedPropertiesAndAdditionalPropertiesClass mixedPropertiesAndAdditionalPropertiesClass = (MixedPropertiesAndAdditionalPropertiesClass) o;
-    return Objects.equals(this.uuid, mixedPropertiesAndAdditionalPropertiesClass.uuid) &&
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        MixedPropertiesAndAdditionalPropertiesClass mixedPropertiesAndAdditionalPropertiesClass = (MixedPropertiesAndAdditionalPropertiesClass) o;
+        return Objects.equals(this.uuid, mixedPropertiesAndAdditionalPropertiesClass.uuid) &&
         Objects.equals(this.dateTime, mixedPropertiesAndAdditionalPropertiesClass.dateTime) &&
-        Objects.equals(this.map, mixedPropertiesAndAdditionalPropertiesClass.map);
-  }
+        Objects.equals(this.map, mixedPropertiesAndAdditionalPropertiesClass.map);    }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(uuid, dateTime, map);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MixedPropertiesAndAdditionalPropertiesClass {\n");
-    
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
-    sb.append("    map: ").append(toIndentedString(map)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public int hashCode() {
+        return Objects.hash(uuid, dateTime, map);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class MixedPropertiesAndAdditionalPropertiesClass {\n");
+        sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
+        sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
+        sb.append("    map: ").append(toIndentedString(map)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

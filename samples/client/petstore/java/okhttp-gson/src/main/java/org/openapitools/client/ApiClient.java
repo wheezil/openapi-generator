@@ -499,7 +499,7 @@ public class ApiClient {
             return jsonStr.substring(1, jsonStr.length() - 1);
         } else if (param instanceof Collection) {
             StringBuilder b = new StringBuilder();
-            for (Object o : (Collection)param) {
+            for (Object o : (Collection) param) {
                 if (b.length() > 0) {
                     b.append(",");
                 }
@@ -524,7 +524,8 @@ public class ApiClient {
         List<Pair> params = new ArrayList<Pair>();
 
         // preconditions
-        if (name == null || name.isEmpty() || value == null || value instanceof Collection) return params;
+        if (name == null || name.isEmpty() || value == null || value instanceof Collection)
+            return params;
 
         params.add(new Pair(name, parameterToString(value)));
         return params;
@@ -569,7 +570,7 @@ public class ApiClient {
             delimiter = escapeString("|");
         }
 
-        StringBuilder sb = new StringBuilder() ;
+        StringBuilder sb = new StringBuilder();
         for (Object item : value) {
             sb.append(delimiter);
             sb.append(escapeString(parameterToString(item)));
@@ -581,8 +582,7 @@ public class ApiClient {
     }
 
     /**
-     * Sanitize filename by removing path.
-     * e.g. ../../sun.gif becomes sun.gif
+     * Sanitize filename by removing path. e.g. ../../sun.gif becomes sun.gif
      *
      * @param filename The filename to be sanitized
      * @return The sanitized filename
@@ -603,8 +603,8 @@ public class ApiClient {
      * @return True if the given MIME is JSON, false otherwise.
      */
     public boolean isJsonMime(String mime) {
-      String jsonMime = "(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$";
-      return mime != null && (mime.matches(jsonMime) || mime.equals("*/*"));
+        String jsonMime = "(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$";
+        return mime != null && (mime.matches(jsonMime) || mime.equals("*/*"));
     }
 
     /**
@@ -639,7 +639,7 @@ public class ApiClient {
      */
     public String selectHeaderContentType(String[] contentTypes) {
         if (contentTypes.length == 0 || contentTypes[0].equals("*/*")) {
-             return "application/json";
+            return "application/json";
         }
         for (String contentType : contentTypes) {
             if (isJsonMime(contentType)) {
@@ -717,11 +717,9 @@ public class ApiClient {
             // Expecting string, return the raw response body.
             return (T) respBody;
         } else {
-            throw new ApiException(
-                    "Content type \"" + contentType + "\" is not supported for type: " + returnType,
-                    response.code(),
-                    response.headers().toMultimap(),
-                    respBody);
+            throw new ApiException("Content type \"" + contentType
+                    + "\" is not supported for type: " + returnType, response.code(), response
+                    .headers().toMultimap(), respBody);
         }
     }
 
@@ -910,7 +908,8 @@ public class ApiClient {
                     try {
                         response.body().close();
                     } catch (IOException e) {
-                        throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
+                        throw new ApiException(response.message(), e, response.code(), response
+                                .headers().toMultimap());
                     }
                 }
                 return null;
@@ -923,10 +922,12 @@ public class ApiClient {
                 try {
                     respBody = response.body().string();
                 } catch (IOException e) {
-                    throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
+                    throw new ApiException(response.message(), e, response.code(), response
+                            .headers().toMultimap());
                 }
             }
-            throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
+            throw new ApiException(response.message(), response.code(), response.headers()
+                    .toMultimap(), respBody);
         }
     }
 
@@ -934,7 +935,8 @@ public class ApiClient {
      * Build HTTP call with the given options.
      *
      * @param path The sub-path of the HTTP URL
-     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and "DELETE"
+     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and
+     *        "DELETE"
      * @param queryParams The query parameters
      * @param collectionQueryParams The collection query parameters
      * @param body The request body object
@@ -945,8 +947,14 @@ public class ApiClient {
      * @return The HTTP call
      * @throws ApiException If fail to serialize the request body object
      */
-    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, progressRequestListener);
+    public Call buildCall(String path, String method, List<Pair> queryParams,
+            List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams,
+            Map<String, Object> formParams, String[] authNames,
+            ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
+        Request request =
+                buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams,
+                        formParams, authNames, progressRequestListener);
 
         return httpClient.newCall(request);
     }
@@ -955,7 +963,8 @@ public class ApiClient {
      * Build an HTTP request with the given options.
      *
      * @param path The sub-path of the HTTP URL
-     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and "DELETE"
+     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and
+     *        "DELETE"
      * @param queryParams The query parameters
      * @param collectionQueryParams The collection query parameters
      * @param body The request body object
@@ -963,10 +972,14 @@ public class ApiClient {
      * @param formParams The form parameters
      * @param authNames The authentications to apply
      * @param progressRequestListener Progress request listener
-     * @return The HTTP request 
+     * @return The HTTP request
      * @throws ApiException If fail to serialize the request body object
      */
-    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Request buildRequest(String path, String method, List<Pair> queryParams,
+            List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams,
+            Map<String, Object> formParams, String[] authNames,
+            ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         updateParamsForAuth(authNames, queryParams, headerParams);
 
         final String url = buildUrl(path, queryParams, collectionQueryParams);
@@ -1000,8 +1013,9 @@ public class ApiClient {
 
         Request request = null;
 
-        if(progressRequestListener != null && reqBody != null) {
-            ProgressRequestBody progressRequestBody = new ProgressRequestBody(reqBody, progressRequestListener);
+        if (progressRequestListener != null && reqBody != null) {
+            ProgressRequestBody progressRequestBody =
+                    new ProgressRequestBody(reqBody, progressRequestListener);
             request = reqBuilder.method(method, progressRequestBody).build();
         } else {
             request = reqBuilder.method(method, reqBody).build();
@@ -1034,7 +1048,8 @@ public class ApiClient {
                         url.append("&");
                     }
                     String value = parameterToString(param.getValue());
-                    url.append(escapeString(param.getName())).append("=").append(escapeString(value));
+                    url.append(escapeString(param.getName())).append("=")
+                            .append(escapeString(value));
                 }
             }
         }
@@ -1080,13 +1095,15 @@ public class ApiClient {
      * Update query and header parameters based on authentication settings.
      *
      * @param authNames The authentications to apply
-     * @param queryParams  List of query parameters
-     * @param headerParams  Map of header parameters
+     * @param queryParams List of query parameters
+     * @param headerParams Map of header parameters
      */
-    public void updateParamsForAuth(String[] authNames, List<Pair> queryParams, Map<String, String> headerParams) {
+    public void updateParamsForAuth(String[] authNames, List<Pair> queryParams,
+            Map<String, String> headerParams) {
         for (String authName : authNames) {
             Authentication auth = authentications.get(authName);
-            if (auth == null) throw new RuntimeException("Authentication undefined: " + authName);
+            if (auth == null)
+                throw new RuntimeException("Authentication undefined: " + authName);
             auth.applyToParams(queryParams, headerParams);
         }
     }
@@ -1098,7 +1115,7 @@ public class ApiClient {
      * @return RequestBody
      */
     public RequestBody buildRequestBodyFormEncoding(Map<String, Object> formParams) {
-        FormEncodingBuilder formBuilder  = new FormEncodingBuilder();
+        FormEncodingBuilder formBuilder = new FormEncodingBuilder();
         for (Entry<String, Object> param : formParams.entrySet()) {
             formBuilder.add(param.getKey(), parameterToString(param.getValue()));
         }
@@ -1106,8 +1123,8 @@ public class ApiClient {
     }
 
     /**
-     * Build a multipart (file uploading) request body with the given form parameters,
-     * which could contain text fields and file fields.
+     * Build a multipart (file uploading) request body with the given form parameters, which could
+     * contain text fields and file fields.
      *
      * @param formParams Form parameters in the form of Map
      * @return RequestBody
@@ -1117,12 +1134,17 @@ public class ApiClient {
         for (Entry<String, Object> param : formParams.entrySet()) {
             if (param.getValue() instanceof File) {
                 File file = (File) param.getValue();
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + file.getName() + "\"");
+                Headers partHeaders =
+                        Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey()
+                                + "\"; filename=\"" + file.getName() + "\"");
                 MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
                 mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
             } else {
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
-                mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(param.getValue())));
+                Headers partHeaders =
+                        Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey()
+                                + "\"");
+                mpBuilder.addPart(partHeaders,
+                        RequestBody.create(null, parameterToString(param.getValue())));
             }
         }
         return mpBuilder.build();
@@ -1144,8 +1166,8 @@ public class ApiClient {
     }
 
     /**
-     * Apply SSL related settings to httpClient according to the current values of
-     * verifyingSsl and sslCaCert.
+     * Apply SSL related settings to httpClient according to the current values of verifyingSsl and
+     * sslCaCert.
      */
     private void applySslSettings() {
         try {
@@ -1154,24 +1176,32 @@ public class ApiClient {
             if (!verifyingSsl) {
                 TrustManager trustAll = new X509TrustManager() {
                     @Override
-                    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
+                    public void checkClientTrusted(X509Certificate[] chain, String authType)
+                            throws CertificateException {}
                     @Override
-                    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
+                    public void checkServerTrusted(X509Certificate[] chain, String authType)
+                            throws CertificateException {}
                     @Override
-                    public X509Certificate[] getAcceptedIssuers() { return null; }
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return null;
+                    }
                 };
                 SSLContext sslContext = SSLContext.getInstance("TLS");
-                trustManagers = new TrustManager[]{ trustAll };
+                trustManagers = new TrustManager[] {trustAll};
                 hostnameVerifier = new HostnameVerifier() {
                     @Override
-                    public boolean verify(String hostname, SSLSession session) { return true; }
+                    public boolean verify(String hostname, SSLSession session) {
+                        return true;
+                    }
                 };
             } else if (sslCaCert != null) {
                 char[] password = null; // Any password will work.
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-                Collection<? extends Certificate> certificates = certificateFactory.generateCertificates(sslCaCert);
+                Collection<? extends Certificate> certificates =
+                        certificateFactory.generateCertificates(sslCaCert);
                 if (certificates.isEmpty()) {
-                    throw new IllegalArgumentException("expected non-empty set of trusted certificates");
+                    throw new IllegalArgumentException(
+                            "expected non-empty set of trusted certificates");
                 }
                 KeyStore caKeyStore = newEmptyKeyStore(password);
                 int index = 0;
@@ -1179,7 +1209,8 @@ public class ApiClient {
                     String certificateAlias = "ca" + Integer.toString(index++);
                     caKeyStore.setCertificateEntry(certificateAlias, certificate);
                 }
-                TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                TrustManagerFactory trustManagerFactory =
+                        TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
                 trustManagerFactory.init(caKeyStore);
                 trustManagers = trustManagerFactory.getTrustManagers();
             }

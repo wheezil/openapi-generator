@@ -28,48 +28,48 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(EnumClass.Adapter.class)
 public enum EnumClass {
+    
+    _ABC("_abc"),
+    
+    _EFG("-efg"),
+    
+    _XYZ_("(xyz)");
   
-  _ABC("_abc"),
+    private String value;
   
-  _EFG("-efg"),
-  
-  _XYZ_("(xyz)");
-
-  private String value;
-
-  EnumClass(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return value;
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  public static EnumClass fromValue(String text) {
-    for (EnumClass b : EnumClass.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    EnumClass(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
-  }
 
-  public static class Adapter extends TypeAdapter<EnumClass> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final EnumClass enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public EnumClass read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return EnumClass.fromValue(String.valueOf(value));
+    public String toString() {
+        return String.valueOf(value);
     }
+
+    public static EnumClass fromValue(String text) {
+        for (EnumClass b : EnumClass.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + text + "'");
   }
+
+    public static class Adapter extends TypeAdapter<EnumClass> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final EnumClass enumeration) throws IOException {
+            jsonWriter.value(enumeration.getValue());
+        }
+
+        @Override
+        public EnumClass read(final JsonReader jsonReader) throws IOException {
+            String value = jsonReader.nextString();
+            return EnumClass.fromValue(String.valueOf(value));
+        }
+    }
 }
 
