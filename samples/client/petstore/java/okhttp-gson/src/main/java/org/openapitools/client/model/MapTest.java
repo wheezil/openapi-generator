@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package org.openapitools.client.model;
 
 import java.util.Objects;
@@ -33,208 +32,223 @@ import org.openapitools.client.model.StringBooleanMap;
  */
 
 public class MapTest {
-    public static final String SERIALIZED_NAME_MAP_MAP_OF_STRING = "map_map_of_string";
-    @SerializedName(SERIALIZED_NAME_MAP_MAP_OF_STRING)
-    private Map<String, Map<String, String>> mapMapOfString = null;
+	public static final String SERIALIZED_NAME_MAP_MAP_OF_STRING = "map_map_of_string";
+	@SerializedName(SERIALIZED_NAME_MAP_MAP_OF_STRING)
+	private Map<String, Map<String, String>> mapMapOfString = null;
 
-  /**
-   * Gets or Sets inner
-   */
-  @JsonAdapter(InnerEnum.Adapter.class)
-  public enum InnerEnum {
-    UPPER("UPPER"),
-    
-    LOWER("lower");
+	/**
+	 * Gets or Sets inner
+	 */
+	@JsonAdapter(InnerEnum.Adapter.class)
+	public enum InnerEnum {
+		UPPER("UPPER"),
 
-    private String value;
+		LOWER("lower");
 
-    InnerEnum(String value) {
-      this.value = value;
-    }
+		private String value;
 
-    public String getValue() {
-      return value;
-    }
+		InnerEnum(String value) {
+			this.value = value;
+		}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+		public String getValue() {
+			return value;
+		}
 
-    public static InnerEnum fromValue(String text) {
-      for (InnerEnum b : InnerEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + text + "'");
-    }
+		@Override
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-    public static class Adapter extends TypeAdapter<InnerEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final InnerEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+		public static InnerEnum fromValue(String text) {
+			for (InnerEnum b : InnerEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			throw new IllegalArgumentException("Unexpected value '" + text
+					+ "'");
+		}
 
-      @Override
-      public InnerEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return InnerEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
+		public static class Adapter extends TypeAdapter<InnerEnum> {
+			@Override
+			public void write(final JsonWriter jsonWriter,
+					final InnerEnum enumeration) throws IOException {
+				jsonWriter.value(enumeration.getValue());
+			}
 
-    public static final String SERIALIZED_NAME_MAP_OF_ENUM_STRING = "map_of_enum_string";
-    @SerializedName(SERIALIZED_NAME_MAP_OF_ENUM_STRING)
-    private Map<String, InnerEnum> mapOfEnumString = null;
+			@Override
+			public InnerEnum read(final JsonReader jsonReader)
+					throws IOException {
+				String value = jsonReader.nextString();
+				return InnerEnum.fromValue(String.valueOf(value));
+			}
+		}
+	}
 
-    public static final String SERIALIZED_NAME_DIRECT_MAP = "direct_map";
-    @SerializedName(SERIALIZED_NAME_DIRECT_MAP)
-    private Map<String, Boolean> directMap = null;
+	public static final String SERIALIZED_NAME_MAP_OF_ENUM_STRING = "map_of_enum_string";
+	@SerializedName(SERIALIZED_NAME_MAP_OF_ENUM_STRING)
+	private Map<String, InnerEnum> mapOfEnumString = null;
 
-    public static final String SERIALIZED_NAME_INDIRECT_MAP = "indirect_map";
-    @SerializedName(SERIALIZED_NAME_INDIRECT_MAP)
-    private StringBooleanMap indirectMap = null;
+	public static final String SERIALIZED_NAME_DIRECT_MAP = "direct_map";
+	@SerializedName(SERIALIZED_NAME_DIRECT_MAP)
+	private Map<String, Boolean> directMap = null;
 
-    public MapTest mapMapOfString(Map<String, Map<String, String>> mapMapOfString) {
-        this.mapMapOfString = mapMapOfString;
-        return this;
-    }
+	public static final String SERIALIZED_NAME_INDIRECT_MAP = "indirect_map";
+	@SerializedName(SERIALIZED_NAME_INDIRECT_MAP)
+	private StringBooleanMap indirectMap = null;
 
-    public MapTest putMapMapOfStringItem(String key, Map<String, String> mapMapOfStringItem) {
-        if (this.mapMapOfString == null) {
-            this.mapMapOfString = new HashMap<String, Map<String, String>>();
-        }
-        this.mapMapOfString.put(key, mapMapOfStringItem);
-        return this;
-    }
+	public MapTest mapMapOfString(
+			Map<String, Map<String, String>> mapMapOfString) {
+		this.mapMapOfString = mapMapOfString;
+		return this;
+	}
 
-   /**
-     * Get mapMapOfString
-     * @return mapMapOfString
-     **/
-    @ApiModelProperty(value = "")
-    public Map<String, Map<String, String>> getMapMapOfString() {
-        return mapMapOfString;
-    }
+	public MapTest putMapMapOfStringItem(String key,
+			Map<String, String> mapMapOfStringItem) {
+		if (this.mapMapOfString == null) {
+			this.mapMapOfString = new HashMap<String, Map<String, String>>();
+		}
+		this.mapMapOfString.put(key, mapMapOfStringItem);
+		return this;
+	}
 
-    public void setMapMapOfString(Map<String, Map<String, String>> mapMapOfString) {
-        this.mapMapOfString = mapMapOfString;
-    }
+	/**
+	 * Get mapMapOfString
+	 * 
+	 * @return mapMapOfString
+	 **/
+	@ApiModelProperty(value = "")
+	public Map<String, Map<String, String>> getMapMapOfString() {
+		return mapMapOfString;
+	}
 
-    public MapTest mapOfEnumString(Map<String, InnerEnum> mapOfEnumString) {
-        this.mapOfEnumString = mapOfEnumString;
-        return this;
-    }
+	public void setMapMapOfString(
+			Map<String, Map<String, String>> mapMapOfString) {
+		this.mapMapOfString = mapMapOfString;
+	}
 
-    public MapTest putMapOfEnumStringItem(String key, InnerEnum mapOfEnumStringItem) {
-        if (this.mapOfEnumString == null) {
-            this.mapOfEnumString = new HashMap<String, InnerEnum>();
-        }
-        this.mapOfEnumString.put(key, mapOfEnumStringItem);
-        return this;
-    }
+	public MapTest mapOfEnumString(Map<String, InnerEnum> mapOfEnumString) {
+		this.mapOfEnumString = mapOfEnumString;
+		return this;
+	}
 
-   /**
-     * Get mapOfEnumString
-     * @return mapOfEnumString
-     **/
-    @ApiModelProperty(value = "")
-    public Map<String, InnerEnum> getMapOfEnumString() {
-        return mapOfEnumString;
-    }
+	public MapTest putMapOfEnumStringItem(String key,
+			InnerEnum mapOfEnumStringItem) {
+		if (this.mapOfEnumString == null) {
+			this.mapOfEnumString = new HashMap<String, InnerEnum>();
+		}
+		this.mapOfEnumString.put(key, mapOfEnumStringItem);
+		return this;
+	}
 
-    public void setMapOfEnumString(Map<String, InnerEnum> mapOfEnumString) {
-        this.mapOfEnumString = mapOfEnumString;
-    }
+	/**
+	 * Get mapOfEnumString
+	 * 
+	 * @return mapOfEnumString
+	 **/
+	@ApiModelProperty(value = "")
+	public Map<String, InnerEnum> getMapOfEnumString() {
+		return mapOfEnumString;
+	}
 
-    public MapTest directMap(Map<String, Boolean> directMap) {
-        this.directMap = directMap;
-        return this;
-    }
+	public void setMapOfEnumString(Map<String, InnerEnum> mapOfEnumString) {
+		this.mapOfEnumString = mapOfEnumString;
+	}
 
-    public MapTest putDirectMapItem(String key, Boolean directMapItem) {
-        if (this.directMap == null) {
-            this.directMap = new HashMap<String, Boolean>();
-        }
-        this.directMap.put(key, directMapItem);
-        return this;
-    }
+	public MapTest directMap(Map<String, Boolean> directMap) {
+		this.directMap = directMap;
+		return this;
+	}
 
-   /**
-     * Get directMap
-     * @return directMap
-     **/
-    @ApiModelProperty(value = "")
-    public Map<String, Boolean> getDirectMap() {
-        return directMap;
-    }
+	public MapTest putDirectMapItem(String key, Boolean directMapItem) {
+		if (this.directMap == null) {
+			this.directMap = new HashMap<String, Boolean>();
+		}
+		this.directMap.put(key, directMapItem);
+		return this;
+	}
 
-    public void setDirectMap(Map<String, Boolean> directMap) {
-        this.directMap = directMap;
-    }
+	/**
+	 * Get directMap
+	 * 
+	 * @return directMap
+	 **/
+	@ApiModelProperty(value = "")
+	public Map<String, Boolean> getDirectMap() {
+		return directMap;
+	}
 
-    public MapTest indirectMap(StringBooleanMap indirectMap) {
-        this.indirectMap = indirectMap;
-        return this;
-    }
+	public void setDirectMap(Map<String, Boolean> directMap) {
+		this.directMap = directMap;
+	}
 
-   /**
-     * Get indirectMap
-     * @return indirectMap
-     **/
-    @ApiModelProperty(value = "")
-    public StringBooleanMap getIndirectMap() {
-        return indirectMap;
-    }
+	public MapTest indirectMap(StringBooleanMap indirectMap) {
+		this.indirectMap = indirectMap;
+		return this;
+	}
 
-    public void setIndirectMap(StringBooleanMap indirectMap) {
-        this.indirectMap = indirectMap;
-    }
+	/**
+	 * Get indirectMap
+	 * 
+	 * @return indirectMap
+	 **/
+	@ApiModelProperty(value = "")
+	public StringBooleanMap getIndirectMap() {
+		return indirectMap;
+	}
 
+	public void setIndirectMap(StringBooleanMap indirectMap) {
+		this.indirectMap = indirectMap;
+	}
 
-    @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        MapTest mapTest = (MapTest) o;
-        return Objects.equals(this.mapMapOfString, mapTest.mapMapOfString) &&
-        Objects.equals(this.mapOfEnumString, mapTest.mapOfEnumString) &&
-        Objects.equals(this.directMap, mapTest.directMap) &&
-        Objects.equals(this.indirectMap, mapTest.indirectMap);    }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		MapTest mapTest = (MapTest) o;
+		return Objects.equals(this.mapMapOfString, mapTest.mapMapOfString)
+				&& Objects
+						.equals(this.mapOfEnumString, mapTest.mapOfEnumString)
+				&& Objects.equals(this.directMap, mapTest.directMap)
+				&& Objects.equals(this.indirectMap, mapTest.indirectMap);
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(mapMapOfString, mapOfEnumString, directMap, indirectMap);
-    }
+	@Override
+	public int hashCode() {
+		return Objects.hash(mapMapOfString, mapOfEnumString, directMap,
+				indirectMap);
+	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class MapTest {\n");
+		sb.append("    mapMapOfString: ")
+				.append(toIndentedString(mapMapOfString)).append("\n");
+		sb.append("    mapOfEnumString: ")
+				.append(toIndentedString(mapOfEnumString)).append("\n");
+		sb.append("    directMap: ").append(toIndentedString(directMap))
+				.append("\n");
+		sb.append("    indirectMap: ").append(toIndentedString(indirectMap))
+				.append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class MapTest {\n");
-        sb.append("    mapMapOfString: ").append(toIndentedString(mapMapOfString)).append("\n");
-        sb.append("    mapOfEnumString: ").append(toIndentedString(mapOfEnumString)).append("\n");
-        sb.append("    directMap: ").append(toIndentedString(directMap)).append("\n");
-        sb.append("    indirectMap: ").append(toIndentedString(indirectMap)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

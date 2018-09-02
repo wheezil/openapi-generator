@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package org.openapitools.client.model;
 
 import java.util.Objects;
@@ -31,191 +30,199 @@ import java.util.List;
  */
 
 public class EnumArrays {
-  /**
-   * Gets or Sets justSymbol
-   */
-  @JsonAdapter(JustSymbolEnum.Adapter.class)
-  public enum JustSymbolEnum {
-    GREATER_THAN_OR_EQUAL_TO(">="),
-    
-    DOLLAR("$");
+	/**
+	 * Gets or Sets justSymbol
+	 */
+	@JsonAdapter(JustSymbolEnum.Adapter.class)
+	public enum JustSymbolEnum {
+		GREATER_THAN_OR_EQUAL_TO(">="),
 
-    private String value;
+		DOLLAR("$");
 
-    JustSymbolEnum(String value) {
-      this.value = value;
-    }
+		private String value;
 
-    public String getValue() {
-      return value;
-    }
+		JustSymbolEnum(String value) {
+			this.value = value;
+		}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+		public String getValue() {
+			return value;
+		}
 
-    public static JustSymbolEnum fromValue(String text) {
-      for (JustSymbolEnum b : JustSymbolEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + text + "'");
-    }
+		@Override
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-    public static class Adapter extends TypeAdapter<JustSymbolEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final JustSymbolEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+		public static JustSymbolEnum fromValue(String text) {
+			for (JustSymbolEnum b : JustSymbolEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			throw new IllegalArgumentException("Unexpected value '" + text
+					+ "'");
+		}
 
-      @Override
-      public JustSymbolEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return JustSymbolEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
+		public static class Adapter extends TypeAdapter<JustSymbolEnum> {
+			@Override
+			public void write(final JsonWriter jsonWriter,
+					final JustSymbolEnum enumeration) throws IOException {
+				jsonWriter.value(enumeration.getValue());
+			}
 
-    public static final String SERIALIZED_NAME_JUST_SYMBOL = "just_symbol";
-    @SerializedName(SERIALIZED_NAME_JUST_SYMBOL)
-    private JustSymbolEnum justSymbol = null;
+			@Override
+			public JustSymbolEnum read(final JsonReader jsonReader)
+					throws IOException {
+				String value = jsonReader.nextString();
+				return JustSymbolEnum.fromValue(String.valueOf(value));
+			}
+		}
+	}
 
-  /**
-   * Gets or Sets arrayEnum
-   */
-  @JsonAdapter(ArrayEnumEnum.Adapter.class)
-  public enum ArrayEnumEnum {
-    FISH("fish"),
-    
-    CRAB("crab");
+	public static final String SERIALIZED_NAME_JUST_SYMBOL = "just_symbol";
+	@SerializedName(SERIALIZED_NAME_JUST_SYMBOL)
+	private JustSymbolEnum justSymbol = null;
 
-    private String value;
+	/**
+	 * Gets or Sets arrayEnum
+	 */
+	@JsonAdapter(ArrayEnumEnum.Adapter.class)
+	public enum ArrayEnumEnum {
+		FISH("fish"),
 
-    ArrayEnumEnum(String value) {
-      this.value = value;
-    }
+		CRAB("crab");
 
-    public String getValue() {
-      return value;
-    }
+		private String value;
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+		ArrayEnumEnum(String value) {
+			this.value = value;
+		}
 
-    public static ArrayEnumEnum fromValue(String text) {
-      for (ArrayEnumEnum b : ArrayEnumEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + text + "'");
-    }
+		public String getValue() {
+			return value;
+		}
 
-    public static class Adapter extends TypeAdapter<ArrayEnumEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ArrayEnumEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+		@Override
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-      @Override
-      public ArrayEnumEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ArrayEnumEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
+		public static ArrayEnumEnum fromValue(String text) {
+			for (ArrayEnumEnum b : ArrayEnumEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			throw new IllegalArgumentException("Unexpected value '" + text
+					+ "'");
+		}
 
-    public static final String SERIALIZED_NAME_ARRAY_ENUM = "array_enum";
-    @SerializedName(SERIALIZED_NAME_ARRAY_ENUM)
-    private List<ArrayEnumEnum> arrayEnum = null;
+		public static class Adapter extends TypeAdapter<ArrayEnumEnum> {
+			@Override
+			public void write(final JsonWriter jsonWriter,
+					final ArrayEnumEnum enumeration) throws IOException {
+				jsonWriter.value(enumeration.getValue());
+			}
 
-    public EnumArrays justSymbol(JustSymbolEnum justSymbol) {
-        this.justSymbol = justSymbol;
-        return this;
-    }
+			@Override
+			public ArrayEnumEnum read(final JsonReader jsonReader)
+					throws IOException {
+				String value = jsonReader.nextString();
+				return ArrayEnumEnum.fromValue(String.valueOf(value));
+			}
+		}
+	}
 
-   /**
-     * Get justSymbol
-     * @return justSymbol
-     **/
-    @ApiModelProperty(value = "")
-    public JustSymbolEnum getJustSymbol() {
-        return justSymbol;
-    }
+	public static final String SERIALIZED_NAME_ARRAY_ENUM = "array_enum";
+	@SerializedName(SERIALIZED_NAME_ARRAY_ENUM)
+	private List<ArrayEnumEnum> arrayEnum = null;
 
-    public void setJustSymbol(JustSymbolEnum justSymbol) {
-        this.justSymbol = justSymbol;
-    }
+	public EnumArrays justSymbol(JustSymbolEnum justSymbol) {
+		this.justSymbol = justSymbol;
+		return this;
+	}
 
-    public EnumArrays arrayEnum(List<ArrayEnumEnum> arrayEnum) {
-        this.arrayEnum = arrayEnum;
-        return this;
-    }
+	/**
+	 * Get justSymbol
+	 * 
+	 * @return justSymbol
+	 **/
+	@ApiModelProperty(value = "")
+	public JustSymbolEnum getJustSymbol() {
+		return justSymbol;
+	}
 
-    public EnumArrays addArrayEnumItem(ArrayEnumEnum arrayEnumItem) {
-        if (this.arrayEnum == null) {
-            this.arrayEnum = new ArrayList<ArrayEnumEnum>();
-        }
-        this.arrayEnum.add(arrayEnumItem);
-        return this;
-    }
+	public void setJustSymbol(JustSymbolEnum justSymbol) {
+		this.justSymbol = justSymbol;
+	}
 
-   /**
-     * Get arrayEnum
-     * @return arrayEnum
-     **/
-    @ApiModelProperty(value = "")
-    public List<ArrayEnumEnum> getArrayEnum() {
-        return arrayEnum;
-    }
+	public EnumArrays arrayEnum(List<ArrayEnumEnum> arrayEnum) {
+		this.arrayEnum = arrayEnum;
+		return this;
+	}
 
-    public void setArrayEnum(List<ArrayEnumEnum> arrayEnum) {
-        this.arrayEnum = arrayEnum;
-    }
+	public EnumArrays addArrayEnumItem(ArrayEnumEnum arrayEnumItem) {
+		if (this.arrayEnum == null) {
+			this.arrayEnum = new ArrayList<ArrayEnumEnum>();
+		}
+		this.arrayEnum.add(arrayEnumItem);
+		return this;
+	}
 
+	/**
+	 * Get arrayEnum
+	 * 
+	 * @return arrayEnum
+	 **/
+	@ApiModelProperty(value = "")
+	public List<ArrayEnumEnum> getArrayEnum() {
+		return arrayEnum;
+	}
 
-    @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        EnumArrays enumArrays = (EnumArrays) o;
-        return Objects.equals(this.justSymbol, enumArrays.justSymbol) &&
-        Objects.equals(this.arrayEnum, enumArrays.arrayEnum);    }
+	public void setArrayEnum(List<ArrayEnumEnum> arrayEnum) {
+		this.arrayEnum = arrayEnum;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(justSymbol, arrayEnum);
-    }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		EnumArrays enumArrays = (EnumArrays) o;
+		return Objects.equals(this.justSymbol, enumArrays.justSymbol)
+				&& Objects.equals(this.arrayEnum, enumArrays.arrayEnum);
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(justSymbol, arrayEnum);
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class EnumArrays {\n");
-        sb.append("    justSymbol: ").append(toIndentedString(justSymbol)).append("\n");
-        sb.append("    arrayEnum: ").append(toIndentedString(arrayEnum)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class EnumArrays {\n");
+		sb.append("    justSymbol: ").append(toIndentedString(justSymbol))
+				.append("\n");
+		sb.append("    arrayEnum: ").append(toIndentedString(arrayEnum))
+				.append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

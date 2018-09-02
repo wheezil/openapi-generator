@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package org.openapitools.client.model;
 
 import java.util.Objects;
@@ -30,234 +29,244 @@ import org.threeten.bp.OffsetDateTime;
  */
 
 public class Order {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private Long id = null;
+	public static final String SERIALIZED_NAME_ID = "id";
+	@SerializedName(SERIALIZED_NAME_ID)
+	private Long id = null;
 
-    public static final String SERIALIZED_NAME_PET_ID = "petId";
-    @SerializedName(SERIALIZED_NAME_PET_ID)
-    private Long petId = null;
+	public static final String SERIALIZED_NAME_PET_ID = "petId";
+	@SerializedName(SERIALIZED_NAME_PET_ID)
+	private Long petId = null;
 
-    public static final String SERIALIZED_NAME_QUANTITY = "quantity";
-    @SerializedName(SERIALIZED_NAME_QUANTITY)
-    private Integer quantity = null;
+	public static final String SERIALIZED_NAME_QUANTITY = "quantity";
+	@SerializedName(SERIALIZED_NAME_QUANTITY)
+	private Integer quantity = null;
 
-    public static final String SERIALIZED_NAME_SHIP_DATE = "shipDate";
-    @SerializedName(SERIALIZED_NAME_SHIP_DATE)
-    private OffsetDateTime shipDate = null;
+	public static final String SERIALIZED_NAME_SHIP_DATE = "shipDate";
+	@SerializedName(SERIALIZED_NAME_SHIP_DATE)
+	private OffsetDateTime shipDate = null;
 
-  /**
-   * Order Status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    PLACED("placed"),
-    
-    APPROVED("approved"),
-    
-    DELIVERED("delivered");
+	/**
+	 * Order Status
+	 */
+	@JsonAdapter(StatusEnum.Adapter.class)
+	public enum StatusEnum {
+		PLACED("placed"),
 
-    private String value;
+		APPROVED("approved"),
 
-    StatusEnum(String value) {
-      this.value = value;
-    }
+		DELIVERED("delivered");
 
-    public String getValue() {
-      return value;
-    }
+		private String value;
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+		StatusEnum(String value) {
+			this.value = value;
+		}
 
-    public static StatusEnum fromValue(String text) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + text + "'");
-    }
+		public String getValue() {
+			return value;
+		}
 
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+		@Override
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StatusEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
+		public static StatusEnum fromValue(String text) {
+			for (StatusEnum b : StatusEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			throw new IllegalArgumentException("Unexpected value '" + text
+					+ "'");
+		}
 
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private StatusEnum status = null;
+		public static class Adapter extends TypeAdapter<StatusEnum> {
+			@Override
+			public void write(final JsonWriter jsonWriter,
+					final StatusEnum enumeration) throws IOException {
+				jsonWriter.value(enumeration.getValue());
+			}
 
-    public static final String SERIALIZED_NAME_COMPLETE = "complete";
-    @SerializedName(SERIALIZED_NAME_COMPLETE)
-    private Boolean complete = false;
+			@Override
+			public StatusEnum read(final JsonReader jsonReader)
+					throws IOException {
+				String value = jsonReader.nextString();
+				return StatusEnum.fromValue(String.valueOf(value));
+			}
+		}
+	}
 
-    public Order id(Long id) {
-        this.id = id;
-        return this;
-    }
+	public static final String SERIALIZED_NAME_STATUS = "status";
+	@SerializedName(SERIALIZED_NAME_STATUS)
+	private StatusEnum status = null;
 
-   /**
-     * Get id
-     * @return id
-     **/
-    @ApiModelProperty(value = "")
-    public Long getId() {
-        return id;
-    }
+	public static final String SERIALIZED_NAME_COMPLETE = "complete";
+	@SerializedName(SERIALIZED_NAME_COMPLETE)
+	private Boolean complete = false;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Order id(Long id) {
+		this.id = id;
+		return this;
+	}
 
-    public Order petId(Long petId) {
-        this.petId = petId;
-        return this;
-    }
+	/**
+	 * Get id
+	 * 
+	 * @return id
+	 **/
+	@ApiModelProperty(value = "")
+	public Long getId() {
+		return id;
+	}
 
-   /**
-     * Get petId
-     * @return petId
-     **/
-    @ApiModelProperty(value = "")
-    public Long getPetId() {
-        return petId;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setPetId(Long petId) {
-        this.petId = petId;
-    }
+	public Order petId(Long petId) {
+		this.petId = petId;
+		return this;
+	}
 
-    public Order quantity(Integer quantity) {
-        this.quantity = quantity;
-        return this;
-    }
+	/**
+	 * Get petId
+	 * 
+	 * @return petId
+	 **/
+	@ApiModelProperty(value = "")
+	public Long getPetId() {
+		return petId;
+	}
 
-   /**
-     * Get quantity
-     * @return quantity
-     **/
-    @ApiModelProperty(value = "")
-    public Integer getQuantity() {
-        return quantity;
-    }
+	public void setPetId(Long petId) {
+		this.petId = petId;
+	}
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+	public Order quantity(Integer quantity) {
+		this.quantity = quantity;
+		return this;
+	}
 
-    public Order shipDate(OffsetDateTime shipDate) {
-        this.shipDate = shipDate;
-        return this;
-    }
+	/**
+	 * Get quantity
+	 * 
+	 * @return quantity
+	 **/
+	@ApiModelProperty(value = "")
+	public Integer getQuantity() {
+		return quantity;
+	}
 
-   /**
-     * Get shipDate
-     * @return shipDate
-     **/
-    @ApiModelProperty(value = "")
-    public OffsetDateTime getShipDate() {
-        return shipDate;
-    }
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
 
-    public void setShipDate(OffsetDateTime shipDate) {
-        this.shipDate = shipDate;
-    }
+	public Order shipDate(OffsetDateTime shipDate) {
+		this.shipDate = shipDate;
+		return this;
+	}
 
-    public Order status(StatusEnum status) {
-        this.status = status;
-        return this;
-    }
+	/**
+	 * Get shipDate
+	 * 
+	 * @return shipDate
+	 **/
+	@ApiModelProperty(value = "")
+	public OffsetDateTime getShipDate() {
+		return shipDate;
+	}
 
-   /**
-     * Order Status
-     * @return status
-     **/
-    @ApiModelProperty(value = "Order Status")
-    public StatusEnum getStatus() {
-        return status;
-    }
+	public void setShipDate(OffsetDateTime shipDate) {
+		this.shipDate = shipDate;
+	}
 
-    public void setStatus(StatusEnum status) {
-        this.status = status;
-    }
+	public Order status(StatusEnum status) {
+		this.status = status;
+		return this;
+	}
 
-    public Order complete(Boolean complete) {
-        this.complete = complete;
-        return this;
-    }
+	/**
+	 * Order Status
+	 * 
+	 * @return status
+	 **/
+	@ApiModelProperty(value = "Order Status")
+	public StatusEnum getStatus() {
+		return status;
+	}
 
-   /**
-     * Get complete
-     * @return complete
-     **/
-    @ApiModelProperty(value = "")
-    public Boolean getComplete() {
-        return complete;
-    }
+	public void setStatus(StatusEnum status) {
+		this.status = status;
+	}
 
-    public void setComplete(Boolean complete) {
-        this.complete = complete;
-    }
+	public Order complete(Boolean complete) {
+		this.complete = complete;
+		return this;
+	}
 
+	/**
+	 * Get complete
+	 * 
+	 * @return complete
+	 **/
+	@ApiModelProperty(value = "")
+	public Boolean getComplete() {
+		return complete;
+	}
 
-    @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Order order = (Order) o;
-        return Objects.equals(this.id, order.id) &&
-        Objects.equals(this.petId, order.petId) &&
-        Objects.equals(this.quantity, order.quantity) &&
-        Objects.equals(this.shipDate, order.shipDate) &&
-        Objects.equals(this.status, order.status) &&
-        Objects.equals(this.complete, order.complete);    }
+	public void setComplete(Boolean complete) {
+		this.complete = complete;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, petId, quantity, shipDate, status, complete);
-    }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Order order = (Order) o;
+		return Objects.equals(this.id, order.id)
+				&& Objects.equals(this.petId, order.petId)
+				&& Objects.equals(this.quantity, order.quantity)
+				&& Objects.equals(this.shipDate, order.shipDate)
+				&& Objects.equals(this.status, order.status)
+				&& Objects.equals(this.complete, order.complete);
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, petId, quantity, shipDate, status, complete);
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Order {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    petId: ").append(toIndentedString(petId)).append("\n");
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-        sb.append("    shipDate: ").append(toIndentedString(shipDate)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    complete: ").append(toIndentedString(complete)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Order {\n");
+		sb.append("    id: ").append(toIndentedString(id)).append("\n");
+		sb.append("    petId: ").append(toIndentedString(petId)).append("\n");
+		sb.append("    quantity: ").append(toIndentedString(quantity))
+				.append("\n");
+		sb.append("    shipDate: ").append(toIndentedString(shipDate))
+				.append("\n");
+		sb.append("    status: ").append(toIndentedString(status)).append("\n");
+		sb.append("    complete: ").append(toIndentedString(complete))
+				.append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

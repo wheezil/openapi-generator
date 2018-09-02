@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package org.openapitools.client.model;
 
 import java.util.Objects;
@@ -33,247 +32,256 @@ import org.openapitools.client.model.Tag;
  */
 
 public class Pet {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private Long id = null;
+	public static final String SERIALIZED_NAME_ID = "id";
+	@SerializedName(SERIALIZED_NAME_ID)
+	private Long id = null;
 
-    public static final String SERIALIZED_NAME_CATEGORY = "category";
-    @SerializedName(SERIALIZED_NAME_CATEGORY)
-    private Category category = null;
+	public static final String SERIALIZED_NAME_CATEGORY = "category";
+	@SerializedName(SERIALIZED_NAME_CATEGORY)
+	private Category category = null;
 
-    public static final String SERIALIZED_NAME_NAME = "name";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name = null;
+	public static final String SERIALIZED_NAME_NAME = "name";
+	@SerializedName(SERIALIZED_NAME_NAME)
+	private String name = null;
 
-    public static final String SERIALIZED_NAME_PHOTO_URLS = "photoUrls";
-    @SerializedName(SERIALIZED_NAME_PHOTO_URLS)
-    private List<String> photoUrls = new ArrayList<String>();
+	public static final String SERIALIZED_NAME_PHOTO_URLS = "photoUrls";
+	@SerializedName(SERIALIZED_NAME_PHOTO_URLS)
+	private List<String> photoUrls = new ArrayList<String>();
 
-    public static final String SERIALIZED_NAME_TAGS = "tags";
-    @SerializedName(SERIALIZED_NAME_TAGS)
-    private List<Tag> tags = null;
+	public static final String SERIALIZED_NAME_TAGS = "tags";
+	@SerializedName(SERIALIZED_NAME_TAGS)
+	private List<Tag> tags = null;
 
-  /**
-   * pet status in the store
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    AVAILABLE("available"),
-    
-    PENDING("pending"),
-    
-    SOLD("sold");
+	/**
+	 * pet status in the store
+	 */
+	@JsonAdapter(StatusEnum.Adapter.class)
+	public enum StatusEnum {
+		AVAILABLE("available"),
 
-    private String value;
+		PENDING("pending"),
 
-    StatusEnum(String value) {
-      this.value = value;
-    }
+		SOLD("sold");
 
-    public String getValue() {
-      return value;
-    }
+		private String value;
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+		StatusEnum(String value) {
+			this.value = value;
+		}
 
-    public static StatusEnum fromValue(String text) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + text + "'");
-    }
+		public String getValue() {
+			return value;
+		}
 
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+		@Override
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StatusEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
+		public static StatusEnum fromValue(String text) {
+			for (StatusEnum b : StatusEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			throw new IllegalArgumentException("Unexpected value '" + text
+					+ "'");
+		}
 
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private StatusEnum status = null;
+		public static class Adapter extends TypeAdapter<StatusEnum> {
+			@Override
+			public void write(final JsonWriter jsonWriter,
+					final StatusEnum enumeration) throws IOException {
+				jsonWriter.value(enumeration.getValue());
+			}
 
-    public Pet id(Long id) {
-        this.id = id;
-        return this;
-    }
+			@Override
+			public StatusEnum read(final JsonReader jsonReader)
+					throws IOException {
+				String value = jsonReader.nextString();
+				return StatusEnum.fromValue(String.valueOf(value));
+			}
+		}
+	}
 
-   /**
-     * Get id
-     * @return id
-     **/
-    @ApiModelProperty(value = "")
-    public Long getId() {
-        return id;
-    }
+	public static final String SERIALIZED_NAME_STATUS = "status";
+	@SerializedName(SERIALIZED_NAME_STATUS)
+	private StatusEnum status = null;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Pet id(Long id) {
+		this.id = id;
+		return this;
+	}
 
-    public Pet category(Category category) {
-        this.category = category;
-        return this;
-    }
+	/**
+	 * Get id
+	 * 
+	 * @return id
+	 **/
+	@ApiModelProperty(value = "")
+	public Long getId() {
+		return id;
+	}
 
-   /**
-     * Get category
-     * @return category
-     **/
-    @ApiModelProperty(value = "")
-    public Category getCategory() {
-        return category;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+	public Pet category(Category category) {
+		this.category = category;
+		return this;
+	}
 
-    public Pet name(String name) {
-        this.name = name;
-        return this;
-    }
+	/**
+	 * Get category
+	 * 
+	 * @return category
+	 **/
+	@ApiModelProperty(value = "")
+	public Category getCategory() {
+		return category;
+	}
 
-   /**
-     * Get name
-     * @return name
-     **/
-    @ApiModelProperty(example = "doggie", required = true, value = "")
-    public String getName() {
-        return name;
-    }
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public Pet name(String name) {
+		this.name = name;
+		return this;
+	}
 
-    public Pet photoUrls(List<String> photoUrls) {
-        this.photoUrls = photoUrls;
-        return this;
-    }
+	/**
+	 * Get name
+	 * 
+	 * @return name
+	 **/
+	@ApiModelProperty(example = "doggie", required = true, value = "")
+	public String getName() {
+		return name;
+	}
 
-    public Pet addPhotoUrlsItem(String photoUrlsItem) {
-        this.photoUrls.add(photoUrlsItem);
-        return this;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-   /**
-     * Get photoUrls
-     * @return photoUrls
-     **/
-    @ApiModelProperty(required = true, value = "")
-    public List<String> getPhotoUrls() {
-        return photoUrls;
-    }
+	public Pet photoUrls(List<String> photoUrls) {
+		this.photoUrls = photoUrls;
+		return this;
+	}
 
-    public void setPhotoUrls(List<String> photoUrls) {
-        this.photoUrls = photoUrls;
-    }
+	public Pet addPhotoUrlsItem(String photoUrlsItem) {
+		this.photoUrls.add(photoUrlsItem);
+		return this;
+	}
 
-    public Pet tags(List<Tag> tags) {
-        this.tags = tags;
-        return this;
-    }
+	/**
+	 * Get photoUrls
+	 * 
+	 * @return photoUrls
+	 **/
+	@ApiModelProperty(required = true, value = "")
+	public List<String> getPhotoUrls() {
+		return photoUrls;
+	}
 
-    public Pet addTagsItem(Tag tagsItem) {
-        if (this.tags == null) {
-            this.tags = new ArrayList<Tag>();
-        }
-        this.tags.add(tagsItem);
-        return this;
-    }
+	public void setPhotoUrls(List<String> photoUrls) {
+		this.photoUrls = photoUrls;
+	}
 
-   /**
-     * Get tags
-     * @return tags
-     **/
-    @ApiModelProperty(value = "")
-    public List<Tag> getTags() {
-        return tags;
-    }
+	public Pet tags(List<Tag> tags) {
+		this.tags = tags;
+		return this;
+	}
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
+	public Pet addTagsItem(Tag tagsItem) {
+		if (this.tags == null) {
+			this.tags = new ArrayList<Tag>();
+		}
+		this.tags.add(tagsItem);
+		return this;
+	}
 
-    public Pet status(StatusEnum status) {
-        this.status = status;
-        return this;
-    }
+	/**
+	 * Get tags
+	 * 
+	 * @return tags
+	 **/
+	@ApiModelProperty(value = "")
+	public List<Tag> getTags() {
+		return tags;
+	}
 
-   /**
-     * pet status in the store
-     * @return status
-     **/
-    @ApiModelProperty(value = "pet status in the store")
-    public StatusEnum getStatus() {
-        return status;
-    }
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
 
-    public void setStatus(StatusEnum status) {
-        this.status = status;
-    }
+	public Pet status(StatusEnum status) {
+		this.status = status;
+		return this;
+	}
 
+	/**
+	 * pet status in the store
+	 * 
+	 * @return status
+	 **/
+	@ApiModelProperty(value = "pet status in the store")
+	public StatusEnum getStatus() {
+		return status;
+	}
 
-    @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Pet pet = (Pet) o;
-        return Objects.equals(this.id, pet.id) &&
-        Objects.equals(this.category, pet.category) &&
-        Objects.equals(this.name, pet.name) &&
-        Objects.equals(this.photoUrls, pet.photoUrls) &&
-        Objects.equals(this.tags, pet.tags) &&
-        Objects.equals(this.status, pet.status);    }
+	public void setStatus(StatusEnum status) {
+		this.status = status;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, category, name, photoUrls, tags, status);
-    }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Pet pet = (Pet) o;
+		return Objects.equals(this.id, pet.id)
+				&& Objects.equals(this.category, pet.category)
+				&& Objects.equals(this.name, pet.name)
+				&& Objects.equals(this.photoUrls, pet.photoUrls)
+				&& Objects.equals(this.tags, pet.tags)
+				&& Objects.equals(this.status, pet.status);
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, category, name, photoUrls, tags, status);
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Pet {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    category: ").append(toIndentedString(category)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    photoUrls: ").append(toIndentedString(photoUrls)).append("\n");
-        sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Pet {\n");
+		sb.append("    id: ").append(toIndentedString(id)).append("\n");
+		sb.append("    category: ").append(toIndentedString(category))
+				.append("\n");
+		sb.append("    name: ").append(toIndentedString(name)).append("\n");
+		sb.append("    photoUrls: ").append(toIndentedString(photoUrls))
+				.append("\n");
+		sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+		sb.append("    status: ").append(toIndentedString(status)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-
