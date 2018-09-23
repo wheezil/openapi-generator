@@ -133,6 +133,8 @@ public class DefaultCodegen implements CodegenConfig {
     protected Boolean prependFormOrBodyParameters = false;
     // The extension of the generated documentation files (defaults to markdown .md)
     protected String docExtension;
+	// Note this needs to be static because it is used in some static methods
+	protected static Boolean strictMode = false;
 
     protected String ignoreFilePathOverride;
 
@@ -195,6 +197,11 @@ public class DefaultCodegen implements CodegenConfig {
         if (additionalProperties.containsKey(CodegenConstants.DOCEXTENSION)) {
             this.setDocExtension(String.valueOf(additionalProperties
                     .get(CodegenConstants.DOCEXTENSION).toString()));
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.STRICT_MODE)) {
+            this.setStrictMode(Boolean.valueOf(additionalProperties
+                    .get(CodegenConstants.STRICT_MODE).toString()));
         }
     }
 
@@ -964,6 +971,9 @@ public class DefaultCodegen implements CodegenConfig {
         // option to change the order of form/body parameter
         cliOptions.add(CliOption.newBoolean(CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS,
                 CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS_DESC).defaultValue(Boolean.FALSE.toString()));
+        // option to throw exception instead of warning about many issues
+        cliOptions.add(CliOption.newBoolean(CodegenConstants.STRICT_MODE,
+                CodegenConstants.STRICT_MODE_DESC).defaultValue(Boolean.FALSE.toString()));
 
         // initialize special character mapping
         initalizeSpecialCharacterMapping();
@@ -1068,7 +1078,7 @@ public class DefaultCodegen implements CodegenConfig {
                         } else if (Parameter.StyleEnum.SPACEDELIMITED.equals(qp.getStyle())) {
                             paramPart.append("%20");
                         } else {
-                            LOGGER.warn("query parameter '" + param.getName() + "style not support: " + qp.getStyle());
+                            warn("query parameter '" + param.getName() + "style not supported: " + qp.getStyle());
                         }
                     } else {
                         paramPart.append(param.getName());
@@ -1188,7 +1198,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         if (content.size() > 1) {
             // @see ModelUtils.getSchemaFromContent()
-            LOGGER.warn("Multiple MediaTypes found, using only the first one");
+            warn("Multiple MediaTypes found, using only the first one");
         }
 
         MediaType mediaType = content.values().iterator().next();
@@ -1310,7 +1320,7 @@ public class DefaultCodegen implements CodegenConfig {
             if (StringUtils.isNotEmpty(schemaName)) {
                 return getAlias(schemaName);
             } else {
-                LOGGER.warn("Error obtaining the datatype from ref:" + schema.get$ref() + ". Default to 'object'");
+                warn("Error obtaining the datatype from ref:" + schema.get$ref() + ". Default to 'object'");
                 return "object";
             }
         } else { // primitive type or model
@@ -1351,7 +1361,7 @@ public class DefaultCodegen implements CodegenConfig {
             } else if (ModelUtils.isDoubleSchema(schema)) {
                 return SchemaTypeUtil.DOUBLE_FORMAT;
             } else {
-                LOGGER.warn("Unknown `format` detected for " + schema.getName() + ": " + schema.getFormat());
+                warn("Unknown `format` detected for " + schema.getName() + ": " + schema.getFormat());
             }
         } else if (ModelUtils.isIntegerSchema(schema)) {
             if (ModelUtils.isLongSchema(schema)) {
@@ -1370,7 +1380,7 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (schema.getProperties() != null && !schema.getProperties().isEmpty()) { // having property implies it's a model
             return "object";
         } else if (StringUtils.isNotEmpty(schema.getType())) {
-            LOGGER.warn("Unknown type found in the schema: " + schema.getType());
+            warn("Unknown type found in the schema: " + schema.getType());
             return schema.getType();
         }
 
@@ -1512,7 +1522,7 @@ public class DefaultCodegen implements CodegenConfig {
         // unalias schema
         schema = ModelUtils.unaliasSchema(allDefinitions, schema);
         if (schema == null) {
-            LOGGER.warn("Schema {} not found", name);
+            warn("Schema {} not found for name: " + name);
             return null;
         }
 
@@ -1570,7 +1580,7 @@ public class DefaultCodegen implements CodegenConfig {
                             m.xmlName = innerModel.getXml().getName();
                         }
                         if (modelImplCnt++ > 1) {
-                            LOGGER.warn("More than one inline schema specified in allOf:. Only the first one is recognized. All others are ignored.");
+                            warn("More than one inline schema specified in allOf:. Only the first one is recognized. All others are ignored.");
                             break; // only one ModelImpl with discriminator allowed in allOf
                         }
                     }
@@ -2023,7 +2033,7 @@ public class DefaultCodegen implements CodegenConfig {
      */
     protected void updatePropertyForArray(CodegenProperty property, CodegenProperty innerProperty) {
         if (innerProperty == null) {
-            LOGGER.warn("skipping invalid array property " + Json.pretty(property));
+            warn("skipping invalid array property " + Json.pretty(property));
             return;
         }
         property.dataFormat = innerProperty.dataFormat;
@@ -2056,7 +2066,7 @@ public class DefaultCodegen implements CodegenConfig {
      */
     protected void updatePropertyForMap(CodegenProperty property, CodegenProperty innerProperty) {
         if (innerProperty == null) {
-            LOGGER.warn("skipping invalid map property " + Json.pretty(property));
+            warn("skipping invalid map property " + Json.pretty(property));
             return;
         }
         if (!languageSpecificPrimitives.contains(innerProperty.baseType)) {
@@ -2433,7 +2443,7 @@ public class DefaultCodegen implements CodegenConfig {
                 } else if (param instanceof CookieParameter || "cookie".equalsIgnoreCase(param.getIn())) {
                     cookieParams.add(p.copy());
                 } else {
-                    LOGGER.warn("Unknown parameter type " + p.baseType + " for " + p.baseName);
+                    warn("Unknown parameter type " + p.baseType + " for " + p.baseName);
                 }
 
             }
@@ -2734,7 +2744,7 @@ public class DefaultCodegen implements CodegenConfig {
         if (parameter.getSchema() != null) {
             Schema parameterSchema = parameter.getSchema();
             if (parameterSchema == null) {
-                LOGGER.warn("warning!  Schema not found for parameter \"" + parameter.getName() + "\", using String");
+                warn("Schema not found for parameter \"" + parameter.getName() + "\", using String");
                 parameterSchema = new StringSchema().description("//TODO automatically added by openapi-generator due to missing type definition.");
             }
 
@@ -2752,7 +2762,7 @@ public class DefaultCodegen implements CodegenConfig {
                 final ArraySchema arraySchema = (ArraySchema) parameterSchema;
                 Schema inner = arraySchema.getItems();
                 if (inner == null) {
-                    LOGGER.warn("warning! No inner type supplied for array parameter \"" + parameter.getName() + "\", using String");
+                    warn("No inner type supplied for array parameter \"" + parameter.getName() + "\", using String");
                     inner = new StringSchema().description("//TODO automatically added by openapi-generator due to missing iner type definition in the spec");
                     arraySchema.setItems(inner);
                 }
@@ -2973,7 +2983,7 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (parameter instanceof CookieParameter || "cookie".equalsIgnoreCase(parameter.getIn())) {
             codegenParameter.isCookieParam = true;
         } else {
-            LOGGER.warn("Unknown parameter type: " + parameter.getName());
+            warn("Unknown parameter type: " + parameter.getName());
         }
 
         // set the parameter excample value
@@ -3136,7 +3146,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
             operationId = sanitizeName(builder.toString());
-            LOGGER.warn("Empty operationId found for path: " + httpMethod + " " + path + ". Renamed to auto-generated operationId: " + operationId);
+            warn("Empty operationId found for path: " + httpMethod + " " + path + ". Renamed to auto-generated operationId: " + operationId);
         }
         return operationId;
     }
@@ -3228,7 +3238,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         if (!co.operationId.equals(uniqueName)) {
-            LOGGER.warn("generated unique operationId `" + uniqueName + "`");
+            warn("generated unique operationId `" + uniqueName + "`");
         }
         co.operationId = uniqueName;
         co.operationIdLowerCase = uniqueName.toLowerCase(Locale.ROOT);
@@ -3371,7 +3381,7 @@ public class DefaultCodegen implements CodegenConfig {
             final Schema prop = entry.getValue();
 
             if (prop == null) {
-                LOGGER.warn("null property for " + key);
+                warn("null property for " + key);
             } else {
                 final CodegenProperty cp = fromProperty(key, prop);
                 cp.required = mandatory.contains(key);
@@ -3698,6 +3708,24 @@ public class DefaultCodegen implements CodegenConfig {
      */
     public String getHttpUserAgent() {
         return httpUserAgent;
+    }
+
+    /**
+     * Strict mode
+     *
+     * @return Documentation files extension
+     */
+    public static Boolean isStrictMode() {
+        return DefaultCodegen.strictMode;
+    }
+
+    /**
+     * Strict mode
+     *
+     * @param userStrictMode Strict mode
+     */
+    public static void setStrictMode(Boolean userStrictMode) {
+        DefaultCodegen.strictMode = userStrictMode;
     }
 
     @SuppressWarnings("static-method")
@@ -4276,7 +4304,7 @@ public class DefaultCodegen implements CodegenConfig {
                     final ArraySchema arraySchema = (ArraySchema) s;
                     Schema inner = arraySchema.getItems();
                     if (inner == null) {
-                        LOGGER.warn("warning! No inner type supplied for array parameter \"" + s.getName() + "\", using String");
+                        warn("No inner type supplied for array parameter \"" + s.getName() + "\", using String");
                         inner = new StringSchema().description("//TODO automatically added by openapi-generator due to missing iner type definition in the spec");
                         arraySchema.setItems(inner);
                     }
@@ -4294,7 +4322,7 @@ public class DefaultCodegen implements CodegenConfig {
                     if (codegenParameter.baseType != null && codegenParameter.enumName != null) {
                         codegenParameter.datatypeWithEnum = codegenParameter.dataType.replace(codegenParameter.baseType, codegenParameter.enumName);
                     } else {
-                        LOGGER.warn("Could not compute datatypeWithEnum from " + codegenParameter.baseType + ", " + codegenParameter.enumName);
+                        warn("Could not compute datatypeWithEnum from " + codegenParameter.baseType + ", " + codegenParameter.enumName);
                     }
                     //TODO fix collectformat for form parameters
                     //collectionFormat = getCollectionFormat(s);
@@ -4534,12 +4562,12 @@ public class DefaultCodegen implements CodegenConfig {
                         codegenModelName = codegenModel.classname;
                         codegenModelDescription = codegenModel.description;
                     } else {
-                        LOGGER.warn("The following schema has undefined (null) baseType. " +
+                        warn("The following schema has undefined (null) baseType. " +
                                 "It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. " +
                                 "A correct 'consumes' for form parameters should be " +
-                                "'application/x-www-form-urlencoded' or 'multipart/form-data'");
-                        LOGGER.warn("schema: " + schema);
-                        LOGGER.warn("codegenModel is null. Default to UNKNOWN_BASE_TYPE");
+                                "'application/x-www-form-urlencoded' or 'multipart/form-data'" +
+								"\nschema: " + schema + 
+								"\ncodegenModel is null. Default to UNKNOWN_BASE_TYPE");
                         codegenModelName = "UNKNOWN_BASE_TYPE";
                         codegenModelDescription = "UNKNOWN_DESCRIPTION";
                     }
@@ -4703,4 +4731,15 @@ public class DefaultCodegen implements CodegenConfig {
     public void postProcessFile(File file, String fileType) {
         LOGGER.debug("Post processing file {} ({})", file, fileType);
     }
+
+	/**
+	 * Issue a warning via logger, unless strict mode is set, in which case throw an exception
+	 */
+	private static void warn(String msg) {
+		if (isStrictMode()) {
+			throw new RuntimeException(msg);
+		} else {
+			LOGGER.warn(msg);
+		}
+	}
 }
