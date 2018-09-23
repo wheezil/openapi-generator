@@ -351,9 +351,9 @@ public class Generate implements Runnable {
             System.err.println("[error] Check the spelling of the generator's name and try again.");
             System.exit(1);
         }
-		
-		List<String> errors = CodegenMessages.getErrors();
-		List<String> warnings = CodegenMessages.getWarnings();
+    
+        List<String> errors = CodegenMessages.getErrors();
+        List<String> warnings = CodegenMessages.getWarnings();
         if (errors.size() > 0) {
             System.err.println("Errors reported: ");
             errors.forEach(msg -> System.err.println("\t-" + msg));
@@ -366,5 +366,6 @@ public class Generate implements Runnable {
             System.err.println("Strict mode: spec has " + errors.size() + " errors. Exiting with failure.");
             System.exit(1);
         }
-    }
+
+	}
 }
