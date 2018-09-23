@@ -35,6 +35,7 @@ import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
+import org.openapitools.codegen.CodegenMessages;
 
 /**
  * User: lanwen Date: 24.03.15 Time: 20:22
@@ -208,6 +209,11 @@ public class Generate implements Runnable {
                     + " Useful for piping the JSON output of debug options (e.g. `-DdebugOperations`) to an external parser directly while testing a generator.")
     private Boolean logToStderr;
 
+    @Option(name = {"--strict-mode"},
+            title = "Strict mode",
+            description = "Fail on specification errors.")
+    private Boolean strictMode;
+
     @Override
     public void run() {
         if (logToStderr != null) {
@@ -343,6 +349,21 @@ public class Generate implements Runnable {
         } catch (GeneratorNotFoundException e) {
             System.err.println(e.getMessage());
             System.err.println("[error] Check the spelling of the generator's name and try again.");
+            System.exit(1);
+        }
+		
+		List<String> errors = CodegenMessages.getErrors();
+		List<String> warnings = CodegenMessages.getWarnings();
+        if (errors.size() > 0) {
+            System.err.println("Errors reported: ");
+            errors.forEach(msg -> System.err.println("\t-" + msg));
+        }
+        if (!warnings.isEmpty()) {
+            System.err.println("Warnings reported: ");
+            warnings.forEach(msg -> System.err.println("\t-" + msg));
+        }
+        if (!errors.isEmpty() && strictMode != null) {
+            System.err.println("Strict mode: spec has " + errors.size() + " errors. Exiting with failure.");
             System.exit(1);
         }
     }
