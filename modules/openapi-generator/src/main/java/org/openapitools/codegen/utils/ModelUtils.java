@@ -56,6 +56,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
+import org.openapitools.codegen.CodegenMessages;
 
 
 public class ModelUtils {
@@ -274,7 +275,7 @@ public class ModelUtils {
         } else if (ref.startsWith("#/definitions/")) {
             ref = ref.substring(ref.lastIndexOf("/") + 1);
         } else {
-            LOGGER.warn("Failed to get the schema name: {}", ref);
+            CodegenMessages.error("Failed to get the schema name: " + ref);
             return null;
         }
 
@@ -643,14 +644,14 @@ public class ModelUtils {
      */
     public static Schema unaliasSchema(Map<String, Schema> allSchemas, Schema schema) {
         if (allSchemas == null || allSchemas.isEmpty()) {
-            LOGGER.warn("allSchemas cann't be null/empty in unaliasSchema. Returned 'schema'");
+            CodegenMessages.error("allSchemas can't be null/empty in unaliasSchema. Returned 'schema'");
             return schema;
         }
 
         if (schema != null && StringUtils.isNotEmpty(schema.get$ref())) {
             Schema ref = allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref()));
             if (ref == null) {
-                LOGGER.warn("{} is not defined", schema.get$ref());
+                CodegenMessages.error("Reference " + schema.get$ref() + " is not defined");
                 return schema;
             } else if (isStringSchema(ref) && (ref.getEnum() != null && !ref.getEnum().isEmpty())) {
                 // top-level enum class
