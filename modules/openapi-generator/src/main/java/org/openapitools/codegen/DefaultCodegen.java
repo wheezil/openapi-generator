@@ -1377,10 +1377,10 @@ public class DefaultCodegen implements CodegenConfig {
             return "string";
         } else if (schema.getProperties() != null && !schema.getProperties().isEmpty()) { // having property implies it's a model
             return "object";
-		} else if (schema.getName() != null && schema.getName().equals("object")) {
-			// The "free-form" type hits this case
+        } else if (schema.getName() != null && schema.getName().equals("object")) {
+            // The "free-form" type hits this case
             return schema.getType();
-		} else if (StringUtils.isNotEmpty(schema.getType())) {
+        } else if (StringUtils.isNotEmpty(schema.getType())) {
             CodegenMessages.warning("Unknown type found in the schema " + schema.getName() + ": " + schema.getType());
             return schema.getType();
         }
@@ -4553,8 +4553,8 @@ public class DefaultCodegen implements CodegenConfig {
                                 "It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. " +
                                 "A correct 'consumes' for form parameters should be " +
                                 "'application/x-www-form-urlencoded' or 'multipart/form-data'" +
-								"\nschema: " + schema + 
-								"\ncodegenModel is null. Default to UNKNOWN_BASE_TYPE");
+                                "\nschema: " + schema + 
+                                "\ncodegenModel is null. Default to UNKNOWN_BASE_TYPE");
                         codegenModelName = "UNKNOWN_BASE_TYPE";
                         codegenModelDescription = "UNKNOWN_DESCRIPTION";
                     }

@@ -27,7 +27,7 @@ public class CodegenMessages {
     }
 
     public static void error(String msg) {
-		LOGGER.error(msg);	// in case something bad hapens as a result.
+        LOGGER.error(msg);    // in case something bad hapens as a result.
         errors.add(msg);
     }
 
