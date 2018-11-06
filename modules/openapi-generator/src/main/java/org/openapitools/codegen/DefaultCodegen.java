@@ -1369,11 +1369,13 @@ public class DefaultCodegen implements CodegenConfig {
             return "string";
         } else if (schema.getProperties() != null && !schema.getProperties().isEmpty()) { // having property implies it's a model
             return "object";
-        } else if (StringUtils.isNotEmpty(schema.getType())) {
-            CodegenMessages.error("Unknown type found in the schema " + schema.getName() + ": " + schema.getType());
+		} else if (schema.getName() != null && schema.getName().equals("object")) {
+			// The "free-form" type hits this case
+            return schema.getType();
+		} else if (StringUtils.isNotEmpty(schema.getType())) {
+            CodegenMessages.warning("Unknown type found in the schema " + schema.getName() + ": " + schema.getType());
             return schema.getType();
         }
-
         return "object";
     }
 
