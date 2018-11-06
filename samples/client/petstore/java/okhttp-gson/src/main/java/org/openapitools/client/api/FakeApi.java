@@ -899,16 +899,16 @@ public class FakeApi {
      * @param _double None (required)
      * @param patternWithoutDelimiter None (required)
      * @param _byte None (required)
-     * @param integer None (optional, default to null)
-     * @param int32 None (optional, default to null)
-     * @param int64 None (optional, default to null)
-     * @param _float None (optional, default to null)
-     * @param string None (optional, default to null)
-     * @param binary None (optional, default to null)
-     * @param date None (optional, default to null)
-     * @param dateTime None (optional, default to null)
-     * @param password None (optional, default to null)
-     * @param paramCallback None (optional, default to null)
+     * @param integer None (optional)
+     * @param int32 None (optional)
+     * @param int64 None (optional)
+     * @param _float None (optional)
+     * @param string None (optional)
+     * @param binary None (optional)
+     * @param date None (optional)
+     * @param dateTime None (optional)
+     * @param password None (optional)
+     * @param paramCallback None (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1046,16 +1046,16 @@ public class FakeApi {
      * @param _double None (required)
      * @param patternWithoutDelimiter None (required)
      * @param _byte None (required)
-     * @param integer None (optional, default to null)
-     * @param int32 None (optional, default to null)
-     * @param int64 None (optional, default to null)
-     * @param _float None (optional, default to null)
-     * @param string None (optional, default to null)
-     * @param binary None (optional, default to null)
-     * @param date None (optional, default to null)
-     * @param dateTime None (optional, default to null)
-     * @param password None (optional, default to null)
-     * @param paramCallback None (optional, default to null)
+     * @param integer None (optional)
+     * @param int32 None (optional)
+     * @param int64 None (optional)
+     * @param _float None (optional)
+     * @param string None (optional)
+     * @param binary None (optional)
+     * @param date None (optional)
+     * @param dateTime None (optional)
+     * @param password None (optional)
+     * @param paramCallback None (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void testEndpointParameters(BigDecimal number, Double _double, String patternWithoutDelimiter, byte[] _byte, Integer integer, Integer int32, Long int64, Float _float, String string, File binary, LocalDate date, OffsetDateTime dateTime, String password, String paramCallback) throws ApiException {
@@ -1069,16 +1069,16 @@ public class FakeApi {
      * @param _double None (required)
      * @param patternWithoutDelimiter None (required)
      * @param _byte None (required)
-     * @param integer None (optional, default to null)
-     * @param int32 None (optional, default to null)
-     * @param int64 None (optional, default to null)
-     * @param _float None (optional, default to null)
-     * @param string None (optional, default to null)
-     * @param binary None (optional, default to null)
-     * @param date None (optional, default to null)
-     * @param dateTime None (optional, default to null)
-     * @param password None (optional, default to null)
-     * @param paramCallback None (optional, default to null)
+     * @param integer None (optional)
+     * @param int32 None (optional)
+     * @param int64 None (optional)
+     * @param _float None (optional)
+     * @param string None (optional)
+     * @param binary None (optional)
+     * @param date None (optional)
+     * @param dateTime None (optional)
+     * @param password None (optional)
+     * @param paramCallback None (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1094,16 +1094,16 @@ public class FakeApi {
      * @param _double None (required)
      * @param patternWithoutDelimiter None (required)
      * @param _byte None (required)
-     * @param integer None (optional, default to null)
-     * @param int32 None (optional, default to null)
-     * @param int64 None (optional, default to null)
-     * @param _float None (optional, default to null)
-     * @param string None (optional, default to null)
-     * @param binary None (optional, default to null)
-     * @param date None (optional, default to null)
-     * @param dateTime None (optional, default to null)
-     * @param password None (optional, default to null)
-     * @param paramCallback None (optional, default to null)
+     * @param integer None (optional)
+     * @param int32 None (optional)
+     * @param int64 None (optional)
+     * @param _float None (optional)
+     * @param string None (optional)
+     * @param binary None (optional)
+     * @param date None (optional)
+     * @param dateTime None (optional)
+     * @param password None (optional)
+     * @param paramCallback None (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1141,7 +1141,7 @@ public class FakeApi {
      * @param enumQueryString Query parameter enum test (string) (optional, default to -efg)
      * @param enumQueryInteger Query parameter enum test (double) (optional)
      * @param enumQueryDouble Query parameter enum test (double) (optional)
-     * @param enumFormStringArray Form parameter enum test (string array) (optional, default to $)
+     * @param enumFormStringArray Form parameter enum test (string array) (optional)
      * @param enumFormString Form parameter enum test (string) (optional, default to -efg)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -1238,7 +1238,7 @@ public class FakeApi {
      * @param enumQueryString Query parameter enum test (string) (optional, default to -efg)
      * @param enumQueryInteger Query parameter enum test (double) (optional)
      * @param enumQueryDouble Query parameter enum test (double) (optional)
-     * @param enumFormStringArray Form parameter enum test (string array) (optional, default to $)
+     * @param enumFormStringArray Form parameter enum test (string array) (optional)
      * @param enumFormString Form parameter enum test (string) (optional, default to -efg)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1255,7 +1255,7 @@ public class FakeApi {
      * @param enumQueryString Query parameter enum test (string) (optional, default to -efg)
      * @param enumQueryInteger Query parameter enum test (double) (optional)
      * @param enumQueryDouble Query parameter enum test (double) (optional)
-     * @param enumFormStringArray Form parameter enum test (string array) (optional, default to $)
+     * @param enumFormStringArray Form parameter enum test (string array) (optional)
      * @param enumFormString Form parameter enum test (string) (optional, default to -efg)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1274,7 +1274,7 @@ public class FakeApi {
      * @param enumQueryString Query parameter enum test (string) (optional, default to -efg)
      * @param enumQueryInteger Query parameter enum test (double) (optional)
      * @param enumQueryDouble Query parameter enum test (double) (optional)
-     * @param enumFormStringArray Form parameter enum test (string array) (optional, default to $)
+     * @param enumFormStringArray Form parameter enum test (string array) (optional)
      * @param enumFormString Form parameter enum test (string) (optional, default to -efg)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1302,6 +1302,138 @@ public class FakeApi {
         }
 
         com.squareup.okhttp.Call call = testEnumParametersValidateBeforeCall(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumFormStringArray, enumFormString, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for testGroupParameters
+     * @param stringGroup String in group parameters (optional)
+     * @param booleanGroup Boolean in group parameters (optional)
+     * @param int64Group Integer in group parameters (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call testGroupParametersCall(Integer stringGroup, Boolean booleanGroup, Long int64Group, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/fake";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (stringGroup != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("string_group", stringGroup));
+        }
+
+        if (int64Group != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("int64_group", int64Group));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (booleanGroup != null) {
+            localVarHeaderParams.put("boolean_group", apiClient.parameterToString(booleanGroup));
+        }
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call testGroupParametersValidateBeforeCall(Integer stringGroup, Boolean booleanGroup, Long int64Group, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = testGroupParametersCall(stringGroup, booleanGroup, int64Group, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Fake endpoint to test group parameters (optional)
+     * Fake endpoint to test group parameters (optional)
+     * @param stringGroup String in group parameters (optional)
+     * @param booleanGroup Boolean in group parameters (optional)
+     * @param int64Group Integer in group parameters (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void testGroupParameters(Integer stringGroup, Boolean booleanGroup, Long int64Group) throws ApiException {
+        testGroupParametersWithHttpInfo(stringGroup, booleanGroup, int64Group);
+    }
+
+    /**
+     * Fake endpoint to test group parameters (optional)
+     * Fake endpoint to test group parameters (optional)
+     * @param stringGroup String in group parameters (optional)
+     * @param booleanGroup Boolean in group parameters (optional)
+     * @param int64Group Integer in group parameters (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> testGroupParametersWithHttpInfo(Integer stringGroup, Boolean booleanGroup, Long int64Group) throws ApiException {
+        com.squareup.okhttp.Call call = testGroupParametersValidateBeforeCall(stringGroup, booleanGroup, int64Group, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Fake endpoint to test group parameters (optional) (asynchronously)
+     * Fake endpoint to test group parameters (optional)
+     * @param stringGroup String in group parameters (optional)
+     * @param booleanGroup Boolean in group parameters (optional)
+     * @param int64Group Integer in group parameters (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call testGroupParametersAsync(Integer stringGroup, Boolean booleanGroup, Long int64Group, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = testGroupParametersValidateBeforeCall(stringGroup, booleanGroup, int64Group, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
