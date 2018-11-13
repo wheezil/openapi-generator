@@ -2987,6 +2987,12 @@ public class DefaultCodegen implements CodegenConfig {
             CodegenMessages.error("Unknown parameter type: " + parameter.getName());
         }
 
+        // default to UNKNOWN_PARAMETER_NAME if paramName is null
+        if (codegenParameter.paramName == null) {
+            LOGGER.warn("Parameter name not defined properly. Default to UNKNOWN_PARAMETER_NAME");
+            codegenParameter.paramName = "UNKNOWN_PARAMETER_NAME";
+        }
+
         // set the parameter excample value
         // should be overridden by lang codegen
         setParameterExampleValue(codegenParameter, parameter);
